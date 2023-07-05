@@ -3,28 +3,27 @@ import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import ChatBot from "components/ChatBot";
+// import ChatBot from "components/ChatBot";
 import Image from "next/image";
 import Layout from "components/Layout";
 
 export default function Index() {
   return (
-    <Layout title="Home / Demeter">
+    <Layout title="Home / BuildTogether">
       <IndexNavbar fixed />
       <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
-              <h2 className="font-semibold text-4xl text-blueGray-600">
-                Demeter - Smart Agriculture
+              <h2 className="font-semibold text-3xl text-blueGray-600">
+                BuildTogether - Acheive D&I goals
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                Demeter is a software application that helps farmers manage and
-                optimize their agricultural operations.
+              BuildTogether is a software application that create and analyze data, track progress, and improve D&I within the organization.
               </p>
               <div className="mt-12">
                 <Link href="/disease">
-                  <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
+                  <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-[#4F46E5] active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
                     Get started
                   </a>
                 </Link>
@@ -43,7 +42,7 @@ export default function Index() {
         </div>
         <img
           className="absolute top-0 b-auto right-0 pt-12 sm:w-6/12 -mt-16 sm:mt-0 w-100 max-h-860-px"
-          src="/img/homelogo.png"
+          src="https://job-portal-teal.vercel.app/_next/image?url=%2Fintro.png&w=640&q=75"
           alt="..."
         />
       </section>
@@ -93,10 +92,10 @@ export default function Index() {
                     ></polygon>
                   </svg>
                   <h4 className="text-xl font-bold text-white">
-                    Demeter - The Farming Assistant
+                    BuildTogether - The Farming Assistant
                   </h4>
                   <p className="text-md font-light mt-2 text-white">
-                    Demeter is a software application that helps farmers manage
+                    BuildTogether is a software application that helps farmers manage
                     and optimize their agricultural operations. It can provide a
                     variety of features such as disease detection, fertilizer
                     and crop recommendation and weather predictions. It include
@@ -134,7 +133,7 @@ export default function Index() {
                         Disease Detection
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        Demeter allows you to identify dangerous crop diseases
+                        BuildTogether allows you to identify dangerous crop diseases
                         and apply an individual approach to treat them, thus
                         increasing disease prevention effectively.
                       </p>
@@ -195,7 +194,7 @@ export default function Index() {
                       <p className="mb-4 text-blueGray-500">
                         The amount of fertilizers added to soil during the
                         period of cultivation can greatly affect the soil pH and
-                        nutrients. Know the right amount from Demeter.
+                        nutrients. Know the right amount from BuildTogether.
                       </p>
                     </div>
                   </div>
@@ -222,7 +221,7 @@ export default function Index() {
                       </h6>
                       <p className="mb-4 text-blueGray-500">
                         Weather plays an important role in Agriculture. Know the
-                        weather with predictions from Demeter.
+                        weather with predictions from BuildTogether.
                       </p>
                     </div>
                   </div>
@@ -255,7 +254,7 @@ export default function Index() {
                 Disease Detection
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                Demeter allows you to identify dangerous crop diseases and apply
+                BuildTogether allows you to identify dangerous crop diseases and apply
                 an individual approach to treat them, thus increasing disease
                 prevention effectively.
               </p>
@@ -328,7 +327,7 @@ export default function Index() {
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                 The amount of fertilizers added to soil during the period of
                 cultivation can greatly affect the soil pH and nutrients. Know
-                the right amount from Demeter.
+                the right amount from BuildTogether.
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2  rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
@@ -453,7 +452,7 @@ export default function Index() {
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                 Weather plays an important role in Agriculture. Know the weather
-                with predictions from Demeter.
+                with predictions from BuildTogether.
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2  rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
@@ -535,7 +534,7 @@ export default function Index() {
           </div>
         </div>
       </section>
-      <ChatBot />
+
       <Footer />
     </Layout>
   );

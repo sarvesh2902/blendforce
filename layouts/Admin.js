@@ -12,7 +12,7 @@ export default function Admin({ children, title, headerText, image }) {
   return (
     <Layout title={title}>
       <Sidebar />
-      <div className="relative md:ml-64 bg-blueGray-100">
+      <div className="relative md:ml-48 bg-blueGray-100">
         <AdminNavbar title={title} image={image} />
         {/* Header */}
         <HeaderStats headerText={headerText} />
