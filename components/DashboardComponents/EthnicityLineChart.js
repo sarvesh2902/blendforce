@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "chart.js";
 
-export default function CardLineChart() {
+export default function EthinicityLineChart() {
   React.useEffect(() => {
     var config = {
       type: "line",
@@ -17,19 +17,40 @@ export default function CardLineChart() {
           "2020",
         ],
         datasets: [
-          // {
-          //   label: new Date().getFullYear(),
-          //   backgroundColor: "#4c51bf",
-          //   borderColor: "#4c51bf",
-          //   data: [65, 78, 66, 44, 56, 67, 75,85],
-          //   fill: false,
-          // },
           {
-            label: new Date().getFullYear()-3,
+            label: "White",
+            backgroundColor: "#4c51bf",
+            borderColor: "#4c51bf",
+            data: [65, 78, 66, 44, 56, 67, 75,85],
+            fill: false,
+          },
+          {
+            label: "Asian",
             fill: false,
             backgroundColor: "#fff",
             borderColor: "#fff",
-            data: [10, 30, 20, 40, 30, 50, 57,60],
+            data: [10, 30, 20, 40, 30, 50, 57,70],
+          },
+          {
+            label: "Middle Eastern",
+            fill: false,
+            backgroundColor: "#00ff00",
+            borderColor: "#00ff00",
+            data: [8, 15, 20, 25, 22, 28, 38,50],
+          },
+          {
+            label: "Black",
+            fill: false,
+            backgroundColor: "#6666ff",
+            borderColor: "#6666ff",
+            data: [5, 10, 12, 18, 20, 30, 32,45],
+          },
+          {
+            label: "Latin",
+            fill: false,
+            backgroundColor: "#ff0000",
+            borderColor: "#ff0000",
+            data: [3, 5, 8, 15, 16, 18, 20,25],
           },
         ],
       },
@@ -104,7 +125,7 @@ export default function CardLineChart() {
         },
       },
     };
-    var ctx = document.getElementById("line-chart").getContext("2d");
+    var ctx = document.getElementById("ethinicity-line-chart").getContext("2d");
     window.myLine = new Chart(ctx, config);
   }, []);
   return (
@@ -116,14 +137,14 @@ export default function CardLineChart() {
               <h6 className="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
                 Overview
               </h6>
-              <h2 className="text-white text-xl font-semibold">Diversity Performance Till Date</h2>
+              <h2 className="text-white text-xl font-semibold">Ethinicity Till Date</h2>
             </div>
           </div>
         </div>
         <div className="p-4 flex-auto">
           {/* Chart */}
           <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
+            <canvas id="ethinicity-line-chart"></canvas>
           </div>
         </div>
       </div>
