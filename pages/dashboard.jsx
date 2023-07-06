@@ -64,97 +64,74 @@ export default function Dashboard() {
     return <h2 style={{ marginTop: 100, textAlign: "center" }}>LOADING...</h2>;
   }
   return (
-
     <>
-    <Layout title={Dashboard}>
-    <Sidebar />
-    <div className="relative md:ml-48 bg-blueGray-100">
-      <AdminNavbar title={Dashboard} image={session.user.image} />
-      {/* Header */}
-      <HeaderDashboard />
-      <div className="px-4 md:px-10 mx-auto w-full -m-24">
+      <Layout title={Dashboard}>
+        <Sidebar />
+        <div className="relative md:ml-48 bg-blueGray-100">
+          <AdminNavbar title={Dashboard} image={session.user.image} />
+          {/* Header */}
+          <HeaderDashboard />
+          <div className="px-4 md:px-10 mx-auto w-full -m-24">
+            <div className=" flex flex-wrap">
+              <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+                <CardLineChart />
+              </div>
+              <div className=" w-full xl:w-4/12 px-1">
+                <div className=" w-full px-2">
+                  <SexualityPieChart />
+                </div>
+                <div className="w-full  px-2">
+                  <DisabilityPieChart />
+                </div>
+              </div>
+            </div>
 
-      <div className=" flex flex-wrap">
-  <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-    <CardLineChart />
-  </div>
-  <div className=" w-full xl:w-4/12 px-1">
+            <div className=" flex flex-wrap">
+              <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+                <MenToFemaleLineChart />
+              </div>
 
-  <div className=" w-full px-2">
-    <SexualityPieChart />
-  </div>
-  <div className="w-full  px-2">
-    <DisabilityPieChart />
-  </div>
+              <div className=" w-full xl:w-4/12 px-1">
+                <div className=" w-full px-2 ">
+                  <GenderPieChart />
+                </div>
+                <div className="w-full  px-2">
+                  <LGBTQPieChart />
+                </div>
+              </div>
+            </div>
 
-  </div>
+            <div className=" flex flex-wrap">
+              <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+                <EthinicityLineChart />
+              </div>
+              <div className=" w-full xl:w-4/12 px-1">
+                <div className=" w-full px-2 ">
+                  <EthnicityPieChart />
+                </div>
+                <div className="w-full  px-2">
+                  <IndigenousPieChart />
+                </div>
+              </div>
+            </div>
 
-</div>
+            <div className="flex flex-wrap mt-4">
+              <div className="w-full mb-12 xl:mb-0 px-4">
+                <CardPageVisits />
+              </div>
+            </div>
 
-<div className=" flex flex-wrap">
+            <div className="flex flex-wrap mt-4">
+              <div className="w-full px-4">
+                <CardSocialTraffic />
+              </div>
+            </div>
 
-  <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-    <MenToFemaleLineChart />
-  </div>
-
-  <div className=" w-full xl:w-4/12 px-1">
-
-<div className=" w-full px-2 ">
-  <GenderPieChart />
-</div>
-<div className="w-full  px-2">
-  <LGBTQPieChart />
-</div>
-
-</div>
-
-
-</div>
-
-
-
-<div className=" flex flex-wrap">
-  <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-    <EthinicityLineChart />
-  </div>
-  <div className=" w-full xl:w-4/12 px-1">
-
-  <div className=" w-full px-2 ">
-    <EthnicityPieChart />
-  </div>
-  <div className="w-full  px-2">
-    <IndigenousPieChart />
-  </div>
-
-  </div>
-
-</div>
-
-
-<div className="flex flex-wrap mt-4">
-  <div className="w-full mb-12 xl:mb-0 px-4">
-    <CardPageVisits />
-  </div>
-</div>
-
-<div className="flex flex-wrap mt-4">
-  <div className="w-full px-4">
-    <CardSocialTraffic />
-  </div>
-</div>
-
-
-        <FooterAdmin />
-      </div>
-    </div>
-  </Layout>
-  </>
-
-
-
-
-
-
+            <FooterAdmin />
+          </div>
+        </div>
+      </Layout>
+    </>
   );
 }
 

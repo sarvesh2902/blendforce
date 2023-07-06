@@ -79,7 +79,7 @@ def home():
     return "server started..."
 
 
-@app.route("/recommendations", methods=["POST"])
+@app.route("/get-recommendations", methods=["GET"])
 def recommendation():
     employee_df = pd.read_csv("recommendation/employee_data.csv")
     ethnicity_recommendations = ethnicity_recommendation(employee_df)
