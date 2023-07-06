@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "chart.js";
 
-export default function CardLineChart() {
+export default function MenToFemaleLineChart() {
   React.useEffect(() => {
     var config = {
       type: "line",
@@ -17,19 +17,26 @@ export default function CardLineChart() {
           "2020",
         ],
         datasets: [
-          // {
-          //   label: new Date().getFullYear(),
-          //   backgroundColor: "#4c51bf",
-          //   borderColor: "#4c51bf",
-          //   data: [65, 78, 66, 44, 56, 67, 75,85],
-          //   fill: false,
-          // },
           {
-            label: new Date().getFullYear()-3,
+            label: "Men",
+            backgroundColor: "#4c51bf",
+            borderColor: "#4c51bf",
+            data: [65, 78, 66, 44, 56, 67, 75,85],
+            fill: false,
+          },
+          {
+            label: "Women",
             fill: false,
             backgroundColor: "#fff",
             borderColor: "#fff",
-            data: [10, 30, 20, 40, 30, 50, 57,60],
+            data: [10, 30, 20, 40, 30, 50, 57,70],
+          },
+          {
+            label: "Others",
+            fill: false,
+            backgroundColor: "#00ff00",
+            borderColor: "#00ff00",
+            data: [5, 10, 12, 15, 19, 25, 38,50],
           },
         ],
       },
@@ -104,7 +111,7 @@ export default function CardLineChart() {
         },
       },
     };
-    var ctx = document.getElementById("line-chart").getContext("2d");
+    var ctx = document.getElementById("menTofemale-line-chart").getContext("2d");
     window.myLine = new Chart(ctx, config);
   }, []);
   return (
@@ -116,14 +123,14 @@ export default function CardLineChart() {
               <h6 className="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
                 Overview
               </h6>
-              <h2 className="text-white text-xl font-semibold">Diversity Performance Till Date</h2>
+              <h2 className="text-white text-xl font-semibold">Diversity Till Date</h2>
             </div>
           </div>
         </div>
         <div className="p-4 flex-auto">
           {/* Chart */}
           <div className="relative h-350-px">
-            <canvas id="line-chart"></canvas>
+            <canvas id="menTofemale-line-chart"></canvas>
           </div>
         </div>
       </div>

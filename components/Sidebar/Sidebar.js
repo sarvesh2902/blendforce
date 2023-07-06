@@ -8,28 +8,28 @@ import UserDropdown from "components/Dropdowns/UserDropdown.js";
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        pageLanguage: "en",
-        autoDisplay: false,
-      },
-      "google_translate_element"
-    );
-  };
-  useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    );
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-    console.log("kjnkas");
-  }, []);
+  // const googleTranslateElementInit = () => {
+  //   new window.google.translate.TranslateElement(
+  //     {
+  //       pageLanguage: "en",
+  //       autoDisplay: false,
+  //     },
+  //     "google_translate_element"
+  //   );
+  // };
+  // useEffect(() => {
+  //   var addScript = document.createElement("script");
+  //   addScript.setAttribute(
+  //     "src",
+  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  //   );
+  //   document.body.appendChild(addScript);
+  //   window.googleTranslateElementInit = googleTranslateElementInit;
+  //   console.log("kjnkas");
+  // }, []);
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-48 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           {/* Toggler */}
           <button
@@ -109,35 +109,37 @@ export default function Sidebar() {
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              {/* dashboard */}
               <li className="items-center">
-                <Link href="/disease">
+                <Link href="/dashboard">
                   <a
                     className={
                       "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/disease") !== -1
+                      (router.pathname.indexOf("/dashboard") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-blueGray-700 hover:text-blueGray-500")
                     }
                   >
                     <i
                       className={
-                        "fas fa-tv mr-2 text-sm " +
-                        (router.pathname.indexOf("/disease") !== -1
+                        "fas fa-chart-line mr-2 text-sm " +
+                        (router.pathname.indexOf("/dashboard") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
-                    Disease
+                    Dashboard
                   </a>
                 </Link>
               </li>
 
+              {/* departments */}
               <li className="items-center">
-                <Link href="/crop">
+                <Link href="/departments">
                   <a
                     className={
                       "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/crop") !== -1
+                      (router.pathname.indexOf("/departments") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-blueGray-700 hover:text-blueGray-500")
                     }
@@ -145,147 +147,46 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-tools mr-2 text-sm " +
-                        (router.pathname.indexOf("/crop") !== -1
+                        (router.pathname.indexOf("/departments") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
-                    Crop
+                    Departments
                   </a>
                 </Link>
               </li>
 
+
+              {/* jobs */}
               <li className="items-center">
-                <Link href="/fertilizer">
+                <Link href="/jobs">
                   <a
                     className={
                       "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/fertilizer") !== -1
+                      (router.pathname.indexOf("/jobs") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-blueGray-700 hover:text-blueGray-500")
                     }
                   >
                     <i
                       className={
-                        "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/fertilizer") !== -1
+                        "fas fa-user mr-2 text-sm " +
+                        (router.pathname.indexOf("/jobs") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
-                    Fertilizer
+                    Jobs
                   </a>
                 </Link>
               </li>
 
-              <li className="items-center">
-                <Link href="/shop">
-                  <a
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/shop") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/shop") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Fertilizer Shop
-                  </a>
-                </Link>
-              </li>
 
-              <li className="items-center">
-                <Link href="/labs">
-                  <a
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/labs") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/labs") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Labs
-                  </a>
-                </Link>
-              </li>
 
-              <li className="items-center">
-                <Link href="/weather">
-                  <a
-                    href="#pablo"
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/weather") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-map-marked mr-2 text-sm " +
-                        (router.pathname.indexOf("/weather") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Weather
-                  </a>
-                </Link>
-              </li>
 
-              <li className="items-center">
-                <Link href="/news">
-                  <a
-                    href="#pablo"
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/news") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-map-marked mr-2 text-sm " +
-                        (router.pathname.indexOf("/news") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    News
-                  </a>
-                </Link>
-              </li>
-
-              {/* Divider */}
-              <hr className="my-4 md:min-w-full" />
-              <li className="flex items-center">
-                <div
-                  className="px-3 py-4 text-xs uppercase font-bold"
-                  id="google_translate_element"
-                ></div>
-              </li>
             </ul>
-            {/* Heading */}
-            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              No Layout Pages
-            </h6> */}
-            {/* Navigation */}
+
           </div>
         </div>
       </nav>
