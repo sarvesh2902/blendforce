@@ -1,6 +1,11 @@
 from flask_cors import CORS
 from flask import Flask, request
 import pandas as pd
+import docx2txt
+import fitz
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer
+
 
 app = Flask(__name__)
 CORS(app)
@@ -15,7 +20,7 @@ def ethnicity_recommendation(employee_df):
     threshold_ratio = 0.2
 
     # Step 4: Candidate Pool (Assuming an external database)
-    candidate_data = employee_df
+    candidate_data = pd.read_csv("recommendation/candidate_data.csv")
 
     # Step 5: Candidate Filtering
 
@@ -25,7 +30,7 @@ def ethnicity_recommendation(employee_df):
 
     # Step 6: Candidate Ranking
     # You can define a ranking mechanism based on qualifications, experience, etc.
-    filtered_candidates = filtered_candidates.sort_values(by='Age', ascending=True)
+    filtered_candidates = filtered_candidates.sort_values(by='ats_score', ascending=False)
 
     # Step 8: Implement Recommendation System
     # Select the top 10 recommended candidates
@@ -59,7 +64,7 @@ def gender_recommendation(employee_df):
 
     # Step 7: Candidate Ranking
     # You can define a ranking mechanism based on qualifications, experience, etc.
-    filtered_candidates = filtered_candidates.sort_values(by='Age', ascending=True)
+    filtered_candidates = filtered_candidates.sort_values(by='ats_score', ascending=False)
 
     # Step 8: Implement Recommendation System
     # Select the top 10 recommended candidates
@@ -78,12 +83,42 @@ def home():
 def recommendation():
     employee_df = pd.read_csv("recommendation/employee_data.csv")
     ethnicity_recommendations = ethnicity_recommendation(employee_df)
-    print("EthnicityRecommendations")
-    print(ethnicity_recommendations)
     gender_recommendations = gender_recommendation(ethnicity_recommendations)
-    print("GenderRecommendations")
-    print(gender_recommendations)
-    return {"Success": "yes"}
+    return {"recommendations": gender_recommendations.to_dict(orient='records')}
+
+@app.route("/ats", methods=["POST"])
+def ats():
+    # Check if a file is included in the request
+    if 'file' not in request.files:
+        return "No file found", 400
+    
+    file = request.files['file']
+    
+    # Check if the file has a valid filename
+    if file.filename == '':
+        return "Invalid file name", 400
+    
+    # Check if the file is a PDF
+    if file.filename.endswith('.pdf'):
+        # Save the file to the backend
+        file.save('uploads/' + file.filename)
+        
+    doc = fitz.open('uploads/' + file.filename)
+    resume = ""
+    for page in doc:
+        resume +=page.get_text()
+
+    job_description = request.form['jobDescription']
+
+    content = [job_description, resume]
+    cv = CountVectorizer()
+    matrix = cv.fit_transform(content)
+
+    similarity_matrix = cosine_similarity(matrix)
+
+    score = int(similarity_matrix[1][0] * 100)
+
+    return {"score": score}
     
 
 if __name__ == "__main__":
