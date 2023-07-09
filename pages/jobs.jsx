@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import { signIn, useSession, getSession } from "next-auth/react";
 import Admin from "layouts/Admin.js";
 import Link from "next/link";
-import JobBarChart from "components/JobsComponents/HomeBarChart";
-import HomeStatCards from "components/JobsComponents/HomeStatCards";
-import { FiArrowRight } from "react-icons/fi";
 import { RiLiveFill } from "react-icons/ri";
+import { IoAdd } from "react-icons/io5";
 import Skeleton from "components/JobsComponents/Skeleton";
 import LatestJobs from "components/JobsComponents/LatestJobs";
 import OngoingJobs from "components/JobsComponents/OngoingJobs";
 import DoneJobs from "components/JobsComponents/DoneJobs";
-import FeaturedCompanies from "components/JobsComponents/FeaturedCompanies";
 
 export default function Fertilizer() {
   const { data: session, status } = useSession();
@@ -336,7 +333,7 @@ export default function Fertilizer() {
         <div className="w-full mb-12 xl:mb-0 px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
             <div className="flex-auto px-4 lg:px-10 py-10">
-              <div className=" flex flex-wrap">
+              {/* <div className=" flex flex-wrap">
                 <div className="w-full xl:w-7/12 mb-12 xl:mb-0 px-4">
                   <JobBarChart />
                 </div>
@@ -345,13 +342,28 @@ export default function Fertilizer() {
                     <HomeStatCards />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/*---------------------------------------- Featured & Latest Jobs------------------------------------- */}
               <div>
                 <div className="mt-6">
                   <div className="flex flex-wrap mt-4">
                     {/*---------------------------------------- Featured & Latest Jobs------------------------------------- */}
+                    <div className="w-full flex justify-between">
+                        <div>
+
+                        </div>
+                        <div>
+                        <Link href="/create-job">
+                          <a className=" border rounded bg-blue-700 p-2 mx-12 flex justify-between flex-align-center gap-x-2 text-primary">
+                          <IoAdd size={32} color="white" ></IoAdd>
+                            <span className="font-bold text-white">
+                              Create Job
+                            </span>
+                          </a>
+                        </Link>
+                        </div>
+                    </div>
                     <div className="md:col-span-2 h-fit sm:sticky top-0">
                       <hr className="my-4 md:min-w-full" />
                       <div className="flex justify-between mb-4">

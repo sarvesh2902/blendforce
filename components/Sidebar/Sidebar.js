@@ -8,25 +8,7 @@ import UserDropdown from "components/Dropdowns/UserDropdown.js";
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
-  // const googleTranslateElementInit = () => {
-  //   new window.google.translate.TranslateElement(
-  //     {
-  //       pageLanguage: "en",
-  //       autoDisplay: false,
-  //     },
-  //     "google_translate_element"
-  //   );
-  // };
-  // useEffect(() => {
-  //   var addScript = document.createElement("script");
-  //   addScript.setAttribute(
-  //     "src",
-  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  //   );
-  //   document.body.appendChild(addScript);
-  //   window.googleTranslateElementInit = googleTranslateElementInit;
-  //   console.log("kjnkas");
-  // }, []);
+
   return (
     <>
       <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-48 z-10 py-4 px-6">
@@ -178,6 +160,31 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Jobs
+                  </a>
+                </Link>
+              </li>
+
+
+              {/* vendor */}
+              <li className="items-center">
+                <Link href="/vendor">
+                  <a
+                    className={
+                      "text-sm uppercase py-3 font-bold block " +
+                      (router.pathname.indexOf("/vendor") !== -1
+                        ? "text-lightBlue-500 hover:text-lightBlue-600"
+                        : "text-blueGray-700 hover:text-blueGray-500")
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-user mr-2 text-sm " +
+                        (router.pathname.indexOf("/vendor") !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Vendors
                   </a>
                 </Link>
               </li>
