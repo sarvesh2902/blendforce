@@ -5,28 +5,9 @@ import { useRouter } from "next/router";
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
-export default function Sidebar() {
+export default function Sidebar({ role }) {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
-  // const googleTranslateElementInit = () => {
-  //   new window.google.translate.TranslateElement(
-  //     {
-  //       pageLanguage: "en",
-  //       autoDisplay: false,
-  //     },
-  //     "google_translate_element"
-  //   );
-  // };
-  // useEffect(() => {
-  //   var addScript = document.createElement("script");
-  //   addScript.setAttribute(
-  //     "src",
-  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  //   );
-  //   document.body.appendChild(addScript);
-  //   window.googleTranslateElementInit = googleTranslateElementInit;
-  //   console.log("kjnkas");
-  // }, []);
   return (
     <>
       <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-48 z-10 py-4 px-6">
@@ -108,103 +89,152 @@ export default function Sidebar() {
             </h6>
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              {/* dashboard */}
-              <li className="items-center">
-                <Link href="/dashboard">
-                  <a
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/dashboard") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
+            {role === "admin" ? (
+              <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+                {/* dashboard */}
+                <li className="items-center">
+                  <Link href="/dashboard">
+                    <a
                       className={
-                        "fas fa-chart-line mr-2 text-sm " +
+                        "text-sm uppercase py-3 font-bold block " +
                         (router.pathname.indexOf("/dashboard") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
                       }
-                    ></i>{" "}
-                    Dashboard
-                  </a>
-                </Link>
-              </li>
+                    >
+                      <i
+                        className={
+                          "fas fa-chart-line mr-2 text-sm " +
+                          (router.pathname.indexOf("/dashboard") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Dashboard
+                    </a>
+                  </Link>
+                </li>
 
-              {/* departments */}
-              <li className="items-center">
-                <Link href="/departments">
-                  <a
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/departments") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
+                {/* departments */}
+                <li className="items-center">
+                  <Link href="/departments">
+                    <a
                       className={
-                        "fas fa-tools mr-2 text-sm " +
+                        "text-sm uppercase py-3 font-bold block " +
                         (router.pathname.indexOf("/departments") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
                       }
-                    ></i>{" "}
-                    Departments
-                  </a>
-                </Link>
-              </li>
+                    >
+                      <i
+                        className={
+                          "fas fa-tools mr-2 text-sm " +
+                          (router.pathname.indexOf("/departments") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Departments
+                    </a>
+                  </Link>
+                </li>
 
-              {/* employees */}
-              <li className="items-center">
-                <Link href="/employees">
-                  <a
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/employees") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
+                {/* employees */}
+                <li className="items-center">
+                  <Link href="/employees">
+                    <a
                       className={
-                        "fas fa-tools mr-2 text-sm " +
+                        "text-sm uppercase py-3 font-bold block " +
                         (router.pathname.indexOf("/employees") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
                       }
-                    ></i>{" "}
-                    Employees
-                  </a>
-                </Link>
-              </li>
+                    >
+                      <i
+                        className={
+                          "fas fa-tools mr-2 text-sm " +
+                          (router.pathname.indexOf("/employees") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Employees
+                    </a>
+                  </Link>
+                </li>
 
-              {/* jobs */}
-              <li className="items-center">
-                <Link href="/jobs">
-                  <a
-                    className={
-                      "text-sm uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/jobs") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
+                {/* jobs */}
+                <li className="items-center">
+                  <Link href="/jobs">
+                    <a
                       className={
-                        "fas fa-user mr-2 text-sm " +
+                        "text-sm uppercase py-3 font-bold block " +
                         (router.pathname.indexOf("/jobs") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
                       }
-                    ></i>{" "}
-                    Jobs
-                  </a>
-                </Link>
-              </li>
-            </ul>
+                    >
+                      <i
+                        className={
+                          "fas fa-user mr-2 text-sm " +
+                          (router.pathname.indexOf("/jobs") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Jobs
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            ) : (
+              <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+                <li className="items-center">
+                  <Link href="/profile">
+                    <a
+                      className={
+                        "text-sm uppercase py-3 font-bold block " +
+                        (router.pathname.indexOf("/profile") !== -1
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
+                      }
+                    >
+                      <i
+                        className={
+                          "fas fa-tools mr-2 text-sm " +
+                          (router.pathname.indexOf("/profile") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Profile
+                    </a>
+                  </Link>
+                </li>
+                <li className="items-center">
+                  <Link href="/view-jobs">
+                    <a
+                      className={
+                        "text-sm uppercase py-3 font-bold block " +
+                        (router.pathname.indexOf("/view-jobs") !== -1
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
+                      }
+                    >
+                      <i
+                        className={
+                          "fas fa-chart-line mr-2 text-sm " +
+                          (router.pathname.indexOf("/view-jobs") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      View Jobs
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>

@@ -2,9 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { getProviders, signIn } from "next-auth/react";
 import { setCookie } from "cookies-next";
-
-// layout for page
-
 import Auth from "layouts/Auth.js";
 import Layout from "components/Layout";
 
@@ -38,9 +35,9 @@ export default function Login({ providers }) {
                     className="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {
-                      setCookie("role", "admin");
+                      setCookie("role", "candidate");
                       signIn(providers.google.id, {
-                        callbackUrl: `${window.location.origin}/dashboard`,
+                        callbackUrl: `${window.location.origin}/profile`,
                       });
                     }}
                   >

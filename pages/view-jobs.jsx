@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { signIn, useSession, getSession } from "next-auth/react";
 import Admin from "layouts/Admin.js";
-import Skeleton from "components/JobsComponents/Skeleton";
+import { getCookies } from "cookies-next";
 import Jobs from "components/JobsComponents/CandidateJobs";
 
 export default function ViewJobs() {
