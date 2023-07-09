@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 
-const jobsRoute = require("./routes/jobs.routes");
+const candidateRoute = require("./routes/candidate.routes");
 
 const app = express();
 
@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/jobs", jobsRoute);
+app.use("/candidate", candidateRoute);
 
 // done! we export it so we can start the site in start.js
 module.exports = app;
