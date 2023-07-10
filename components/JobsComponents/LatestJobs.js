@@ -65,7 +65,7 @@ const LatestJobs = ({ jobs, jobCount }) => {
                 <span className="text-sm text-muted">month</span>
               </h1>
               <div className="flex justify-center">
-                <Link href="/applicants">
+                <Link href="/applicants/123456">
                   <button
                     className="bg-indigo-500 text-white  active:bg-indigo-600 text-sm font-bold uppercase px-3 py-2 rounded outline-none focus:outline-none mr-1 mt-2 mb-1 ease-linear transition-all duration-150"
                     type="button"

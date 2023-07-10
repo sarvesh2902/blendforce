@@ -3,6 +3,7 @@ var router = express.Router();
 const Candidate = require("../models/candidate");
 const multer = require("multer");
 const fs = require("fs");
+const mongoose = require('mongoose');
 const path = require("path");
 const JobsSchema = require("../models/JobsSchema");
 
@@ -86,6 +87,21 @@ router.post("/apply-job", async (req, res) => {
     const candidate = await JobsSchema.findById(jobId, "applications");
     candidate.applications.push(candidateId);
     candidate.save();
+    res.status(200).json(candidate);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Failed to get candidate" });
+  }
+});
+
+
+router.post("/updateRound", async (req, res) => {
+  try {
+    let {candidateId,round} = req.body;
+    console.log(req.body);
+    const candidate = await Candidate.findOneAndUpdate({"_id":mongoose.Types.ObjectId(candidateId)},{
+      lastClearedRound: ++round
+    });
     res.status(200).json(candidate);
   } catch (e) {
     console.error(e);

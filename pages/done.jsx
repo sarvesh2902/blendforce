@@ -5,8 +5,10 @@ import Link from "next/link";
 import DonutChart from "components/DoneRounds/DonutChart";
 import EachRoundStat from "components/OngoingRounds/EachRoundStat";
 import VendorBarChart from "components/OngoingRounds/VendorBarChart";
+import axios from "axios";
 
-export default function Done() {
+
+export default function Done({candidatesGendorAndVendor,jobID}) {
   const { data: session, status } = useSession();
   console.log(session);
   const [loading, setLoading] = useState(true);
@@ -46,7 +48,7 @@ export default function Done() {
         <DonutChart/>
         </div>
         <div className="  mb-12 xl:mb-0 w-6/12 px-4">
-        <VendorBarChart/>
+        <VendorBarChart vendor = {candidatesGendorAndVendor.vendor}/>
         </div>
 
       </div>
@@ -81,11 +83,27 @@ export default function Done() {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   let userId = null;
+  let candidatesGendorAndVendor = {};
+  let jobID = 123456
+
+  await axios
+    .post("http://127.0.0.1:8787/jobs/analysis", {
+      job_id: "123456",
+    })
+    .then(function (response) {
+      console.log(response);
+      candidatesGendorAndVendor = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
   return {
     props: {
       session,
       userId,
+      candidatesGendorAndVendor,
+      jobID
     },
   };
 }

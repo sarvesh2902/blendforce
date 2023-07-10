@@ -66,7 +66,7 @@ export default function CandidatesTable({Status}) {
             </tbody>
 
           </table>
-          {Status != "Completed" && <div className="flex justify-center"> <Link href="./candidate-table">
+          {Status != "Completed" && <div className="flex justify-center"> <Link href="/candidateTable/123456">
                         <button
                           className="bg-indigo-500 text-white  active:bg-indigo-600 text-sm font-bold uppercase px-1 py-1 rounded outline-none focus:outline-none ease-linear transition-all duration-150 mb-2"
                           type="button"

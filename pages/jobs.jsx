@@ -368,7 +368,7 @@ export default function Fertilizer() {
                       <hr className="my-4 md:min-w-full" />
                       <div className="flex justify-between mb-4">
                         <h1 className="text-xl font-bold">Latest Job Posts</h1>
-                        <Link href="/search">
+                        <Link href="/">
                           <a className=" border rounded bg-blue-700 px-2 mx-12 flex justify-between flex-align-center gap-x-2 text-primary">
                             <span className="font-bold text-white">
                               See All

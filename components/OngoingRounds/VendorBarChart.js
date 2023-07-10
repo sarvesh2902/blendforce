@@ -2,21 +2,21 @@ import dynamic from "next/dynamic";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 import { useEffect, useState } from "react";
 
-const VendorBarChart = () => {
+const VendorBarChart = ({vendor}) => {
 
 
   const [data, setData] = useState( [
     {
       name: "Men",
-      data: [20, 15, 12, 6, 12,3],
+      data: [vendor.LinkedIn.men, vendor.OnCampus.men, vendor.Referals.men, vendor.Indeed.men, vendor.Naukri.men,vendor.Others.men],
     },
     {
       name: "Female",
-      data: [20, 5, 6, 12, 12,1],
+      data: [vendor.LinkedIn.female, vendor.OnCampus.female, vendor.Referals.female, vendor.Indeed.female, vendor.Naukri.female,vendor.Others.female],
     },
     {
       name: "Others",
-      data: [1, 0, 0, 0, 0,0],
+      data: [vendor.LinkedIn.others, vendor.OnCampus.others, vendor.Referals.others, vendor.Indeed.others, vendor.Naukri.others,vendor.Others.others],
     },
   ]);
 
@@ -47,7 +47,7 @@ const VendorBarChart = () => {
       colors: ["transparent"],
     },
     xaxis: {
-      categories: ["LinkedIn", "Naukri.com", "Indeed", "Referals", "OnCampus","Others"],
+      categories: ["LinkedIn", "OnCampus", "Referals", "indeed", "Naukri.com","Others"],
       axisBorder: {
         show: false,
       },

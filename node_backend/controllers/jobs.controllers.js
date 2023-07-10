@@ -42,25 +42,74 @@ exports.addJobData = async (req, res, next) => {
 
 exports.provideOpenJobCandidateData = async (req, res, next) => {
     // if job already exists
-    const job = await JobsSchema.findOne({ email: req.body.job_id });
+    const job = await JobsSchema.findOne({ job_id: Number(req.body.job_id) }).populate({ path:"applications",options: {
+      sort: { ats_score: -1 }
+    }})
 
-    if (job==null) return res.status(400).send("Job data not exists");
+    const candidatesData = job.applications;
 
-
-
-
-    const addedJob = await JobsSchema.create(newData);
-
-    if(addedJob){
-       return res.status(201).json({
-        "type":"success",
-        "msg":addedJob
-      })
-    }else{
-       return res.status(401).json({
-        "type": "failure",
-        "msg": "Job not created"
-      })
+    let genderArray = [0,0,0]
+    let vendorObject = {
+      "LinkedIn":{"men":0,"female":0,"others":0},
+      "OnCampus":{"men":0,"female":0,"others":0},
+      "Referals":{"men":0,"female":0,"others":0},
+      "Naukri":{"men":0,"female":0,"others":0},
+      "Indeed":{"men":0,"female":0,"others":0},
+      "Others":{"men":0,"female":0,"others":0},
     }
+
+    for(let i = 0; i < candidatesData.length; i++){
+      // checking gender
+      if(candidatesData[i].gender === "Male"){
+        genderArray[0]++;
+        if(candidatesData[i].vendor == "LinkedIn") vendorObject.LinkedIn.men++;
+        if(candidatesData[i].vendor == "OnCampus") vendorObject.OnCampus.men++;
+        if(candidatesData[i].vendor == "Referals") vendorObject.Referals.men++;
+        if(candidatesData[i].vendor == "Naukri.com") vendorObject.Naukri.men++;
+        if(candidatesData[i].vendor == "Indeed") vendorObject.Indeed.men++;
+        if(candidatesData[i].vendor == "Others") vendorObject.Others.men++;
+      }
+      else if(candidatesData[i].gender === "Female"){
+
+        genderArray[1]++;
+
+        if(candidatesData[i].vendor == "LinkedIn") vendorObject.LinkedIn.female++;
+        if(candidatesData[i].vendor == "OnCampus") vendorObject.OnCampus.female++;
+        if(candidatesData[i].vendor == "Referals") vendorObject.Referals.female++;
+        if(candidatesData[i].vendor == "Naukri.com") vendorObject.Naukri.female++;
+        if(candidatesData[i].vendor == "Indeed") vendorObject.Indeed.female++;
+        if(candidatesData[i].vendor == "Others") vendorObject.Others.female++;
+      }
+      else{
+        genderArray[2]++;
+        if(candidatesData[i].vendor == "LinkedIn") vendorObject.LinkedIn.others++;
+        if(candidatesData[i].vendor == "OnCampus") vendorObject.OnCampus.others++;
+        if(candidatesData[i].vendor == "Referals") vendorObject.Referals.others++;
+        if(candidatesData[i].vendor == "Naukri.com") vendorObject.Naukri.others++;
+        if(candidatesData[i].vendor == "Indeed") vendorObject.Indeed.others++;
+        if(candidatesData[i].vendor == "Others") vendorObject.Others.others++;
+      }
+
+    }
+
+
+
+
+
+    return res.status(200).json({"msg":"success", "gender": genderArray, "vendor":vendorObject, "candidates":candidatesData});
+
+
+
+
+  }
+
+exports.updateRound = async (req, res, next) => {
+    // if job already exists
+    let {job_id,round} = req.body;
+    console.log(req.body);
+    const job = await JobsSchema.findOneAndUpdate({"job_id":Number(job_id)},{
+      "round": ++round
+    });
+    res.status(200).json(job);
 
   }

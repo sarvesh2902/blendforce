@@ -26,6 +26,9 @@ const candidateSchema = new Schema({
   vendor: {
     type: String,
   },
+  ats_score: {
+    type: Number,
+  },
 });
 
 const Candidate =
