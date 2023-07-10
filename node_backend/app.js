@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const candidateRoute = require("./routes/candidate.routes");
+const jobsRoute = require("./routes/jobs.routes");
 
 const app = express();
 

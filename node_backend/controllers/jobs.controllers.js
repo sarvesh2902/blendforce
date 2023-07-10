@@ -39,3 +39,28 @@ exports.addJobData = async (req, res, next) => {
     }
 
   }
+
+exports.provideOpenJobCandidateData = async (req, res, next) => {
+    // if job already exists
+    const job = await JobsSchema.findOne({ email: req.body.job_id });
+
+    if (job==null) return res.status(400).send("Job data not exists");
+
+
+
+
+    const addedJob = await JobsSchema.create(newData);
+
+    if(addedJob){
+       return res.status(201).json({
+        "type":"success",
+        "msg":addedJob
+      })
+    }else{
+       return res.status(401).json({
+        "type": "failure",
+        "msg": "Job not created"
+      })
+    }
+
+  }

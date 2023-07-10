@@ -46,7 +46,7 @@ const JobsSchema = new Schema({
     },
     applications:[{
       type: mongoose.Types.ObjectId,
-      ref: 'candidates',
+      ref: 'Candidate',
     }],
     phase:{
       type: String,
@@ -54,6 +54,10 @@ const JobsSchema = new Schema({
     round:{
       type: Number,
     },
+    eachRoundCandidates:[[{
+      type: mongoose.Types.ObjectId,
+      ref: 'Candidate',
+    }]],
     createdAt:{
          type: Date,
          default: Date.now
@@ -64,4 +68,4 @@ const JobsSchema = new Schema({
     }
   });
 
-module.exports = mongoose.model('jobs', JobsSchema);
+module.exports = mongoose.model('Job', JobsSchema);
