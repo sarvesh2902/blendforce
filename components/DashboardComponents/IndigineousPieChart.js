@@ -3,32 +3,29 @@ import Chart from "chart.js";
 // import ApexCharts from "apexcharts";
 // import  Chart  from "react-apexcharts";
 
-
-export default function IndigenousPieChart() {
+export default function IndigenousPieChart({ data }) {
   React.useEffect(() => {
+    const labels = data.map((obj) => obj._id);
+    const values = data.map((obj) => obj.count);
     var config = {
       type: "pie",
-      data : {
-        labels: [
-          'YES-59%',
-          'NO-26%',
-          'Prefer not to say-15%'
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Indigenous Dataset",
+            data: values,
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(255, 205, 86)",
+              "rgb(54, 162, 235)",
+            ],
+          },
         ],
-        datasets: [{
-          label: 'Gender Dataset',
-          data: [59, 26, 15],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 205, 86)',
-            'rgb(54, 162, 235)',
-          ],
-        }]
       },
-
     };
     var ctx = document.getElementById("indi-pie-chart").getContext("2d");
     window.myLine = new Chart(ctx, config);
-
   }, []);
 
   return (
@@ -37,14 +34,16 @@ export default function IndigenousPieChart() {
         <div className="rounded-t mb-0 px-4 py-1 bg-transparent">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
-              <h2 className="text-black text-sm font-semibold">Employee Analysis - Indigenous</h2>
+              <h2 className="text-black text-sm font-semibold">
+                Employee Analysis - Indigenous
+              </h2>
             </div>
           </div>
         </div>
         <div className="p-1 flex-auto">
           {/* Chart */}
           <div className="relative ">
-          <canvas id="indi-pie-chart"></canvas>
+            <canvas id="indi-pie-chart"></canvas>
           </div>
         </div>
       </div>

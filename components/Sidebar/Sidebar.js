@@ -6,6 +6,7 @@ import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
 export default function Sidebar({ role }) {
+  console.log(role);
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
   return (
@@ -89,7 +90,7 @@ export default function Sidebar({ role }) {
             </h6>
             {/* Navigation */}
 
-            {role === "admin" ? (
+            {role == "admin" ? (
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                 {/* dashboard */}
                 <li className="items-center">

@@ -7,25 +7,22 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import HeaderCards from "components/DepartmentComponents/HeaderCards";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 import Layout from "components/Layout";
-
-import CardPageVisits from "components/Cards/CardPageVisits.js";
-
+import { getCookie } from "cookies-next";
 import GenderPieChart from "components/DashboardComponents/GenderPieChart";
 import EthnicityPieChart from "components/DashboardComponents/EthnicityPieChart";
-import MenToFemaleLineChart from "components/DashboardComponents/MenToFemaleLineChart";
 import SexualityPieChart from "components/DashboardComponents/SexualityPieChart";
 import LGBTQPieChart from "components/DashboardComponents/LGBTQPieChart";
 import IndigenousPieChart from "components/DashboardComponents/IndigineousPieChart";
 import DisabilityPieChart from "components/DashboardComponents/DisabilityPieChart";
-import EthinicityLineChart from "components/DashboardComponents/EthnicityLineChart";
 import Recommendations from "components/Cards/Recommendations";
 
-export default function Departments({ recommendations }) {
+export default function Departments({ recommendations, employeeData }) {
   const { data: session, status } = useSession();
   console.log(session);
   const [loading, setLoading] = useState(true);
   // console.log(noOfReq);
   let userData = null;
+  const role = getCookie("role");
 
   useEffect(() => {
     const securePage = async () => {
@@ -61,7 +58,7 @@ export default function Departments({ recommendations }) {
   return (
     <>
       <Layout title={Departments}>
-        <Sidebar />
+        <Sidebar role={role} />
         <div className="relative md:ml-48 bg-blueGray-100">
           <AdminNavbar title={Departments} image={session.user.image} />
           {/* Header */}
@@ -82,27 +79,29 @@ export default function Departments({ recommendations }) {
             <div className=" flex flex-wrap">
               <div className=" w-full xl:w-4/12 px-1">
                 <div className=" w-full px-2 ">
-                  <GenderPieChart />
+                  <GenderPieChart data={employeeData.genderCounts} />
                 </div>
                 <div className="w-full  px-2">
-                  <LGBTQPieChart />
+                  <LGBTQPieChart data={employeeData.lgbtqCounts} />
                 </div>
               </div>
               <div className=" w-full xl:w-4/12 px-1">
                 <div className=" w-full px-2 ">
-                  <EthnicityPieChart />
+                  <EthnicityPieChart data={employeeData.ethnicityCounts} />
                 </div>
                 <div className="w-full  px-2">
-                  <IndigenousPieChart />
+                  <IndigenousPieChart data={employeeData.indigenousCounts} />
                 </div>
               </div>
 
               <div className=" w-full xl:w-4/12 px-1">
                 <div className=" w-full px-2">
-                  <SexualityPieChart />
+                  <SexualityPieChart
+                    data={employeeData.sexualOrientationCounts}
+                  />
                 </div>
                 <div className="w-full  px-2">
-                  <DisabilityPieChart />
+                  <DisabilityPieChart data={employeeData.disabilityCounts} />
                 </div>
               </div>
             </div>
@@ -126,6 +125,18 @@ export async function getServerSideProps(context) {
   const recommendations = await axios.get(
     "http://127.0.0.1:5000/get-recommendations"
   );
+  let employeeData;
+  await axios
+    .post("http://localhost:8787/employee/get-employees-dept", {
+      department: context.params.department,
+    })
+    .then(function (response) {
+      console.log(response);
+      employeeData = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   let userId = null;
 
   return {
@@ -133,6 +144,7 @@ export async function getServerSideProps(context) {
       session,
       userId,
       recommendations: recommendations.data.recommendations,
+      employeeData,
     },
   };
 }

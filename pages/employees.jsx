@@ -7,6 +7,7 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 import Layout from "components/Layout";
 import HeaderEmployees from "components/Headers/HeaderEmployees";
 import { useRouter } from "next/router";
+import { getCookie } from "cookies-next";
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
@@ -15,6 +16,7 @@ export default function Dashboard() {
   const router = useRouter();
   // console.log(noOfReq);
   let userData = null;
+  const role = getCookie("role");
 
   useEffect(() => {
     const securePage = async () => {
@@ -50,7 +52,7 @@ export default function Dashboard() {
   return (
     <>
       <Layout title={Dashboard}>
-        <Sidebar />
+        <Sidebar role={role} />
         <div className="relative md:ml-48 bg-blueGray-100">
           <AdminNavbar title={Dashboard} image={session.user.image} />
           {/* Header */}

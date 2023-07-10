@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const candidateRoute = require("./routes/candidate.routes");
 const jobsRoute = require("./routes/jobs.routes");
+const employeeRoute = require("./routes/employee.routes");
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.get("/", (req, res) => {
 
 app.use("/jobs", jobsRoute);
 app.use("/candidate", candidateRoute);
+app.use("/employee", employeeRoute);
 
 // done! we export it so we can start the site in start.js
 module.exports = app;

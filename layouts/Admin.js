@@ -7,7 +7,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import HeaderStats from "components/Headers/HeaderStats.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 import Layout from "components/Layout";
-import { getCookie, setCookie, deleteCookie } from "cookies-next";
+import { getCookie } from "cookies-next";
 
 export default function Admin({ children, title, headerText, image }) {
   const role = getCookie("role");

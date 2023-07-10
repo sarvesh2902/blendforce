@@ -8,6 +8,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import HeaderDashboard from "components/Headers/HeaderDashboard.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 import Layout from "components/Layout";
+import { getCookie } from "cookies-next";
 
 // components
 
@@ -31,6 +32,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   // console.log(noOfReq);
   let userData = null;
+  const role = getCookie("role");
 
   useEffect(() => {
     const securePage = async () => {
@@ -66,7 +68,7 @@ export default function Dashboard() {
   return (
     <>
       <Layout title={Dashboard}>
-        <Sidebar />
+        <Sidebar role={role} />
         <div className="relative md:ml-48 bg-blueGray-100">
           <AdminNavbar title={Dashboard} image={session.user.image} />
           {/* Header */}

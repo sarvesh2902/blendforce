@@ -31,6 +31,9 @@ const JobsSchema = new Schema({
   type_of_employment: {
     type: String,
   },
+  department: {
+    type: String,
+  },
   salary_range: {
     type: String,
   },

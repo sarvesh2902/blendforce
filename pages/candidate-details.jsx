@@ -7,6 +7,7 @@ import HeaderCards from "components/DepartmentComponents/HeaderCards";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 import Layout from "components/Layout";
 import { useRouter } from "next/router";
+import { getCookie } from "cookies-next";
 
 export default function Departments() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function Departments() {
   const { data: session, status } = useSession();
   const [loading, setLoading] = useState(true);
   let userData = null;
+  const role = getCookie("role");
 
   useEffect(() => {
     const securePage = async () => {
@@ -50,7 +52,7 @@ export default function Departments() {
   return (
     <>
       <Layout title={Departments}>
-        <Sidebar />
+        <Sidebar role={role} />
         <div className="relative md:ml-48 bg-blueGray-100">
           <AdminNavbar title={Departments} image={session.user.image} />
           {/* Header */}
