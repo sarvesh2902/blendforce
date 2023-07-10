@@ -1,13 +1,15 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const candidateRoute = require("./routes/candidate.routes");
+const jobsRoute = require("./routes/jobs.routes");
 
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(cors());
 app.use(
   bodyParser.json({
     limit: "200mb",

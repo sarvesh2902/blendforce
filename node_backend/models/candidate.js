@@ -20,6 +20,12 @@ const candidateSchema = new Schema({
   resume: {
     type: String,
   },
+  lastClearedRound: {
+    type: Number,
+  },
+  vendor: {
+    type: String,
+  },
 });
 
 const Candidate =

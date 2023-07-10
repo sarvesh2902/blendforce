@@ -3,14 +3,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-const ProfileForm = () => {
+const ProfileForm = ({ candidate }) => {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    gender: "",
-    ethnicity: "",
+    name: candidate?.name ?? "",
+    email: candidate?.email ?? "",
+    mobile: candidate?.mobile ?? "",
+    gender: candidate?.gender ?? "",
+    ethnicity: candidate?.ethnicity ?? "",
     resume: null,
   });
 

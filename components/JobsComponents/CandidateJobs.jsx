@@ -1,29 +1,38 @@
 /* eslint-disable @next/next/no-img-element */
 import { BiBriefcase } from "react-icons/bi";
 import { FiClock, FiUsers } from "react-icons/fi";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Jobs = ({ jobs, jobCount }) => {
+  const router = useRouter();
   return (
     <div className="rounded flex flex-wrap gap-3 mx-10">
       {jobs.map((job) => (
         <div
-          className=" mx-8 min-w-[40%] rounded border card p-3 flex-1 basis-[16rem] sm:cursor-pointer"
-          key={job.id}
+          className=" mx-8 min-w-[40%] rounded border card p-3 flex-1 basis-[16rem]"
+          key={job.job_id}
         >
           <div className="rounded flex-align-center gap-3">
             <img
-              src={job?.logo_url || "/images/whatsapp.png"}
+              src="https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png"
               alt="logo"
               className="w-16 rounded-lg h-16"
             />
             <div>
-              <Link href="/jobs/[id]" as={`/jobs/${job?.id}`}>
-                <a className="!opacity-100 group-hover:text-primary">
-                  <h1 className="text-xl font-semibold">{job?.title}</h1>
-                </a>
-              </Link>
+              <div
+                onClick={() => {
+                  router.push(
+                    {
+                      pathname: "/apply",
+                      query: job,
+                    },
+                    "/apply"
+                  );
+                }}
+                className="!opacity-100 group-hover:text-primary cursor-pointer"
+              >
+                <h1 className="text-xl font-semibold">{job?.job_title}</h1>
+              </div>
               {/* <JobSkillTags skills={job?.skills} /> */}
             </div>
           </div>
@@ -54,14 +63,21 @@ const Jobs = ({ jobs, jobCount }) => {
                 <span className="text-sm text-muted">month</span>
               </h1>
               <div className="flex justify-center">
-                <Link href="/apply">
-                  <button
-                    className="bg-indigo-500 text-white  active:bg-indigo-600 text-sm font-bold uppercase px-3 py-2 rounded outline-none focus:outline-none mr-1 mt-2 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                  >
-                    Apply
-                  </button>
-                </Link>
+                <button
+                  className="bg-indigo-500 text-white  active:bg-indigo-600 text-sm font-bold uppercase px-3 py-2 rounded outline-none focus:outline-none mr-1 mt-2 mb-1 ease-linear transition-all duration-150"
+                  type="button"
+                  onClick={() => {
+                    router.push(
+                      {
+                        pathname: "/apply",
+                        query: job,
+                      },
+                      "/apply"
+                    );
+                  }}
+                >
+                  Apply
+                </button>
               </div>
             </div>
           </div>

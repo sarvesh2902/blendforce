@@ -1,56 +1,104 @@
 import React from "react";
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
-const ApplicationForm = () => {
+const ApplicationForm = ({ job, candidate }) => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
+    name: candidate?.name ?? "",
+    email: candidate?.email ?? "",
+    mobile: candidate?.mobile ?? "",
+    gender: candidate?.gender ?? "",
+    ethnicity: candidate?.ethnicity ?? "",
     resume: null,
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
-    setFormData((prevState) => {
-      return {
+    if (event.target.type === "file") {
+      setFormData((prevState) => ({
+        ...prevState,
+        resume: event.target.files[0],
+      }));
+    } else {
+      setFormData((prevState) => ({
         ...prevState,
         [event.target.name]: event.target.value,
-      };
-    });
+      }));
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
     console.log(formData);
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("mobile", formData.mobile);
+    formDataToSend.append("gender", formData.gender);
+    formDataToSend.append("ethnicity", formData.ethnicity);
+    formDataToSend.append("resume", formData.resume);
+
+    await axios
+      .post("http://localhost:8787/candidate/save-profile", formDataToSend, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Set the content type as multipart/form-data
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert("Failed to save profile");
+      });
+
+    await axios
+      .post("http://localhost:8787/candidate/apply-job", {
+        jobId: job._id,
+        candidateId: candidate._id,
+      })
+      .then(function (response) {
+        console.log(response);
+        alert("Successfully applied to the job");
+        router.push("/view-jobs");
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert("Failed to save profile");
+      });
   };
   return (
     <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
       <div className="flex-auto px-4 lg:px-10 py-10">
         <div>
-          <p className="font-bold text-center">
-            Job Description: Fresher Software Development Engineer (SDE-1)
+          <p className="font-bold text-center mb-5">
+            Job Description: {job.job_title}
           </p>
-          <br />
-          <b>Company Overview:</b> We are a dynamic and innovative technology
-          company that specializes in developing cutting-edge software
-          solutions. As part of our commitment to fostering talent and nurturing
-          future leaders in the field, we are seeking a highly motivated and
-          skilled Fresher Software Development Engineer (SDE-1) to join our
-          team.
-          <br />
-          <br />
-          <b>Job Summary:</b> As a Fresher Software Development Engineer
-          (SDE-1), you will be responsible for designing, coding, testing, and
-          debugging software applications. You will work closely with a team of
-          experienced software engineers and be involved in the entire software
-          development lifecycle. This is an exciting opportunity for a talented
-          individual to kickstart their career in software development and gain
-          hands-on experience in a fast-paced, collaborative environment.
-          <br />
-          <br />
+          <p className="mb-3">{job.description}</p>
+          <p className="mb-3">
+            <b>Experience Level:</b> {job.experience_level}
+          </p>
+          <p className="mb-3">
+            <b>Experience:</b> {job.experience}
+          </p>
+          <p className="mb-3">
+            <b>Type of Employment:</b> {job.type_of_employment}
+          </p>
+          <p className="mb-3">
+            <b>Salary:</b> {job.salary_range}
+          </p>
+          <p className="mb-3">
+            <b>Minimum Education Required:</b> {job.education}
+          </p>
+          <p className="mb-3">
+            <b>Responsibilities:</b> {job.requirements_and_responsibilities}
+          </p>
         </div>
-        <h3 className="font-bold text-center">
+
+        <h3 className="font-bold text-center my-10">
           Apply for the role through the form below
         </h3>
         <form onSubmit={handleSubmit}>
@@ -111,6 +159,52 @@ const ApplicationForm = () => {
             </div>
           </div>
 
+          <div className="grid grid-cols-2">
+            <div className="mr-2 mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="gender"
+              >
+                Gender
+              </label>
+              <select
+                onChange={handleChange}
+                value={formData.gender}
+                id="gender"
+                name="gender"
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              >
+                <option value="">--Please choose an option--</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div className="mr-2 mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="ethnicity"
+              >
+                Ethinicity
+              </label>
+              <select
+                onChange={handleChange}
+                value={formData.ethnicity}
+                id="ethnicity"
+                name="ethnicity"
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              >
+                <option value="">--Please choose an option--</option>
+                <option value="White">White</option>
+                <option value="Asian">Asian</option>
+                <option value="Black">Black</option>
+                <option value="Middle Eastern">Middle Eastern</option>
+                <option value="Latin">Latin</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
           <div className="mb-3">
             <label
               className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -122,11 +216,9 @@ const ApplicationForm = () => {
               className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               id="resume"
               type="file"
-              placeholder="resume"
+              placeholder="Resume"
               name="resume"
-              required
               onChange={handleChange}
-              value={formData.resume}
             />
           </div>
 
