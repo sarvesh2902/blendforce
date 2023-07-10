@@ -26,6 +26,9 @@ const candidateSchema = new Schema({
   vendor: {
     type: String,
   },
+  department: {
+    type: String,
+  },
 });
 
 const Candidate =

@@ -93,4 +93,15 @@ router.post("/apply-job", async (req, res) => {
   }
 });
 
+router.post("/get-candidates-dept", async (req, res) => {
+  try {
+    const { department } = req.body;
+    const candidates = await Candidate.find({ department });
+    res.status(200).json(candidates);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Failed to get candidates" });
+  }
+});
+
 module.exports = router;

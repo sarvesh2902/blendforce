@@ -17,7 +17,6 @@ router.get("/get-all-jobs", async (req, res) => {
 router.post("/get-employees-dept", async (req, res) => {
   try {
     const { department } = req.body;
-    const employees = await Employee.find({ department });
 
     const genderCounts = await Employee.aggregate([
       { $match: { department } },
@@ -49,16 +48,22 @@ router.post("/get-employees-dept", async (req, res) => {
       { $group: { _id: "$indigenous", count: { $sum: 1 } } },
     ]);
 
-    res
-      .status(200)
-      .json({
-        genderCounts,
-        ethnicityCounts,
-        sexualOrientationCounts,
-        lgbtqCounts,
-        disabilityCounts,
-        indigenousCounts,
-      });
+    const departmentCounts = await Employee.aggregate([
+      { $match: {} },
+      { $group: { _id: "$department", count: { $sum: 1 } } },
+    ]);
+
+    console.log(departmentCounts);
+
+    res.status(200).json({
+      genderCounts,
+      ethnicityCounts,
+      sexualOrientationCounts,
+      lgbtqCounts,
+      disabilityCounts,
+      indigenousCounts,
+      departmentCounts,
+    });
   } catch (e) {
     console.error(error);
     res.status(500).json({ error: "Failed to get employees" });

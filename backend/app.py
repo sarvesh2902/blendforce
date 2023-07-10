@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 app = Flask(__name__)
 CORS(app)
 
-def ethnicity_recommendation(employee_df):
+def ethnicity_recommendation(employee_df, candidates):
     total_employees = len(employee_df)
     ethnicity_counts = employee_df['Ethnicity'].value_counts()
     ethnicity_diversity_ratio = ethnicity_counts / total_employees
@@ -20,13 +20,13 @@ def ethnicity_recommendation(employee_df):
     threshold_ratio = 0.2
 
     # Step 4: Candidate Pool (Assuming an external database)
-    candidate_data = pd.read_csv("recommendation/candidate_data.csv")
+    candidate_data = pd.DataFrame(candidates)
 
     # Step 5: Candidate Filtering
 
     # Filter candidate pool for ethnicities with lower representation
     underrepresented_ethnicities = ethnicity_diversity_ratio[ethnicity_diversity_ratio < threshold_ratio].index
-    filtered_candidates = candidate_data[candidate_data['Ethnicity'].isin(underrepresented_ethnicities)]
+    filtered_candidates = candidate_data[candidate_data['ethnicity'].isin(underrepresented_ethnicities)]
 
     # Step 6: Candidate Ranking
     # You can define a ranking mechanism based on qualifications, experience, etc.
@@ -39,11 +39,11 @@ def ethnicity_recommendation(employee_df):
     return top_candidates
 
 
-def gender_recommendation(employee_df):
+def gender_recommendation(employee_df, candidates):
     # Gender wise
     # Step 3: Calculate Gender Diversity Ratio
     total_employees = len(employee_df)
-    female_employees = len(employee_df[employee_df['gender_encoded'] == 1])
+    female_employees = len(employee_df[employee_df['Gender'] == 'Female'])
     gender_diversity_ratio = 0.338
     
 
@@ -52,15 +52,15 @@ def gender_recommendation(employee_df):
     threshold_ratio = 0.4
 
     # Step 5: Candidate Pool (Assuming an external database)
-    candidate_data = employee_df
+    candidate_data = candidates
 
     # Step 6: Candidate Filtering
     if gender_diversity_ratio < threshold_ratio:
         # Filter candidate pool for female candidates
-        filtered_candidates = candidate_data[candidate_data['gender_encoded'] == 1]
+        filtered_candidates = candidate_data[candidate_data['gender'] == 'Female']
     else:
         # Filter candidate pool for male candidates
-        filtered_candidates = candidate_data[candidate_data['gender_encoded'] == 0]
+        filtered_candidates = candidate_data[candidate_data['gender'] == 'Male']
 
     # Step 7: Candidate Ranking
     # You can define a ranking mechanism based on qualifications, experience, etc.
@@ -79,11 +79,13 @@ def home():
     return "server started..."
 
 
-@app.route("/get-recommendations", methods=["GET"])
+@app.route("/get-recommendations", methods=["POST"])
 def recommendation():
+    print(request.get_json())
     employee_df = pd.read_csv("recommendation/employee_data.csv")
-    ethnicity_recommendations = ethnicity_recommendation(employee_df)
-    gender_recommendations = gender_recommendation(ethnicity_recommendations)
+    ethnicity_recommendations = ethnicity_recommendation(employee_df, request.get_json())
+    gender_recommendations = gender_recommendation(employee_df,ethnicity_recommendations)
+    print(gender_recommendations)
     return {"recommendations": gender_recommendations.to_dict(orient='records')}
 
 @app.route("/ats", methods=["POST"])

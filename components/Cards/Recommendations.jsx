@@ -58,14 +58,14 @@ export default function Recommendations({ recommendations }) {
                           );
                         }}
                       >
-                        {item.Name}
+                        {item.name}
                       </div>
                     </th>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      {item.Gender}
+                      {item.gender}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      {item.Ethnicity}
+                      {item.ethnicity}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                       <div className="flex items-center">
@@ -82,7 +82,13 @@ export default function Recommendations({ recommendations }) {
                           >
                             <div
                               style={{ width: `${item.ats_score}%` }}
-                              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500"
+                              className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${
+                                item.ats_score >= 50 && "bg-emerald-500"
+                              } ${
+                                item.ats_score >= 20 &&
+                                item.ats_score < 50 &&
+                                "bg-orange-500"
+                              } ${item.ats_score < 20 && "bg-red-500"}`}
                             ></div>
                           </div>
                         </div>

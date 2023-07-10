@@ -5,7 +5,6 @@ const cors = require("cors");
 
 const candidateRoute = require("./routes/candidate.routes");
 const jobsRoute = require("./routes/jobs.routes");
-const jobsRoute = require("./routes/jobs.routes");
 const employeeRoute = require("./routes/employee.routes");
 
 const app = express();

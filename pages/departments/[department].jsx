@@ -16,11 +16,15 @@ import IndigenousPieChart from "components/DashboardComponents/IndigineousPieCha
 import DisabilityPieChart from "components/DashboardComponents/DisabilityPieChart";
 import Recommendations from "components/Cards/Recommendations";
 
-export default function Departments({ recommendations, employeeData }) {
+export default function Departments({
+  recommendations,
+  employeeData,
+  deptName,
+}) {
   const { data: session, status } = useSession();
   console.log(session);
   const [loading, setLoading] = useState(true);
-  // console.log(noOfReq);
+  console.log(recommendations);
   let userData = null;
   const role = getCookie("role");
 
@@ -62,14 +66,14 @@ export default function Departments({ recommendations, employeeData }) {
         <div className="relative md:ml-48 bg-blueGray-100">
           <AdminNavbar title={Departments} image={session.user.image} />
           {/* Header */}
-          <HeaderCards />
+          <HeaderCards data={employeeData.departmentCounts} />
           <div className="px-4 md:px-10 mx-auto w-full -m-20">
             <div className="flex flex-wrap mt-2 justify-center">
               <div className=" mb-8 xl:mb-0 px-8">
                 <div className="relative px-8 flex flex-col min-w-0 break-words bg-white mb-6 shadow-lg rounded">
                   <div>
                     <h3 className="font-bold text-xl text-emerald-700 uppercase text-center">
-                      IT Department
+                      {deptName.toUpperCase()} Department
                     </h3>
                   </div>
                 </div>
@@ -122,9 +126,7 @@ export default function Departments({ recommendations, employeeData }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  const recommendations = await axios.get(
-    "http://127.0.0.1:5000/get-recommendations"
-  );
+
   let employeeData;
   await axios
     .post("http://localhost:8787/employee/get-employees-dept", {
@@ -139,10 +141,29 @@ export async function getServerSideProps(context) {
     });
   let userId = null;
 
+  let candidates;
+  await axios
+    .post("http://localhost:8787/candidate/get-candidates-dept", {
+      department: context.params.department,
+    })
+    .then(function (response) {
+      console.log(response);
+      candidates = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  const recommendations = await axios.post(
+    "http://127.0.0.1:5000/get-recommendations",
+    candidates
+  );
+
   return {
     props: {
       session,
       userId,
+      deptName: context.params.department,
       recommendations: recommendations.data.recommendations,
       employeeData,
     },
