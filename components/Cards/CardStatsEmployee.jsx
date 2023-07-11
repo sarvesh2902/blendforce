@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 export default function CardStats({
   statSubtitle,
@@ -7,6 +8,40 @@ export default function CardStats({
   statIconName,
   statIconColor,
 }) {
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!file) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch(
+        "http://localhost:8787/employee/import-employee-dataset",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        console.log("Employees imported successfully.");
+      } else {
+        console.error("Failed to import employees.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
@@ -16,9 +51,25 @@ export default function CardStats({
               <h5 className="text-blueGray-400 uppercase font-bold text-xs mb-5">
                 {statSubtitle}
               </h5>
-              <button className="w-full get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
-                {buttonTitle}
-              </button>
+              {buttonTitle === "Import" ? (
+                <form onSubmit={handleFormSubmit} className="flex gap-6">
+                  <input
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                    id="resume"
+                    type="file"
+                    placeholder="Resume"
+                    name="resume"
+                    onChange={handleFileChange}
+                  />
+                  <button className="w-full get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
+                    {buttonTitle}
+                  </button>
+                </form>
+              ) : (
+                <button className="w-full get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
+                  {buttonTitle}
+                </button>
+              )}
             </div>
             <div className="relative w-auto pl-4 flex-initial">
               <div

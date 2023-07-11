@@ -29,6 +29,9 @@ const candidateSchema = new Schema({
   department: {
     type: String,
   },
+  ats_score: {
+    type: Number,
+  },
 });
 
 const Candidate =

@@ -9,7 +9,7 @@ import HeaderEmployees from "components/Headers/HeaderEmployees";
 import { useRouter } from "next/router";
 import { getCookie } from "cookies-next";
 
-export default function Dashboard() {
+export default function Dashboard({ employees }) {
   const { data: session, status } = useSession();
   console.log(session);
   const [loading, setLoading] = useState(true);
@@ -45,6 +45,20 @@ export default function Dashboard() {
     };
     securePage();
   });
+
+  const handleDownloadClick = () => {
+    fetch("http://localhost:8787/employee/download-employees-csv")
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "employees.csv";
+        a.click();
+        window.URL.revokeObjectURL(url);
+      })
+      .catch((error) => console.error(error));
+  };
 
   if (loading) {
     return <h2 style={{ marginTop: 100, textAlign: "center" }}>LOADING...</h2>;
@@ -98,37 +112,30 @@ export default function Dashboard() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                            <div className="cursor-pointer">Sarvesh Patil</div>
-                          </th>
-                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            IT
-                          </td>
-                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            SDE 1
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                            <div className="cursor-pointer">
-                              Shreyansh Singh
-                            </div>
-                          </th>
-                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            IT
-                          </td>
-                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            SDE 1
-                          </td>
-                        </tr>
+                        {employees.map((employee) => {
+                          return (
+                            <tr>
+                              <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
+                                <div className="cursor-pointer">
+                                  {employee.name}
+                                </div>
+                              </th>
+                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {employee.department.toUpperCase()}
+                              </td>
+                              <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                {employee.position.toUpperCase()}
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
+            <button onClick={handleDownloadClick}>Export</button>
             <FooterAdmin />
           </div>
         </div>
@@ -141,10 +148,22 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
   let userId = null;
 
+  let employees;
+  await axios
+    .get("http://localhost:8787/employee/get-all-employees")
+    .then(function (response) {
+      console.log(response);
+      employees = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   return {
     props: {
       session,
       userId,
+      employees,
     },
   };
 }
