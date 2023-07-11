@@ -5,11 +5,13 @@ import Table, { AvatarCell, StatusPill } from './Table'  // new
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiEdit2, FiDownloadCloud } from "react-icons/fi";
 import { IoAdd } from "react-icons/io5";
+import axios from "axios";
+
 
 
 
 const getData = () => {
-  const data = [
+  const Demodata = [
     {
       id:1,
       name: 'Jane Cooper',
@@ -42,11 +44,11 @@ const getData = () => {
       email: 'cameron.williamson@example.com'
     },
   ]
-  return [...data]
+  return [...Demodata]
 }
 
 
-const TableComponent = () => {
+const TableComponent = ({candidates}) => {
   // const [data,setData] = useState([...fetchdata])
 
   const columns = React.useMemo(() => [
@@ -77,55 +79,75 @@ const TableComponent = () => {
         )
       }
     },
-    // {
-    //   Header: "Status",
-    //   accessor: 'status',
-    //   Cell: StatusPill,
-    // },
-    // {
-    //   Header: "Score",
-    //   accessor: 'score',
-    //   Cell:({value})=>{
-    //       return <div className="flex items-center w-[160px]">
-    //       <span className="mr-2">  {value}%</span>
-    //       <div className="relative w-full">
-    //         <div className="overflow-hidden h-2 text-xs flex rounded bg-orange-200">
-    //           <div
-    //             style={{ width: `${value}%` }}
-    //             className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
-    //           ></div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   }
-    // },
     {
-      Header: " Select / Unselect ",
-      accessor: "id",
-      Cell: ({ value }) => {
-        const selectCan = (email) => {
-          let selected_candidates = []
-          selected_candidates = JSON.parse(localStorage.getItem("selected_candidates"))
-          console.log(selected_candidates);
+      Header: "Mobile Number",
+      accessor: 'mobile',
+      Cell: ({ value})=> {
 
-          if(selected_candidates != null){
-            selected_candidates.push(value);
+        return (
+
+            <div className="ml-1">
+              <div className="text-sm text-gray-500">{value}</div>
+          </div>
+        )
+      }
+    },
+    {
+      Header: "Gender",
+      accessor: 'gender',
+      Cell: ({ value})=> {
+
+        return (
+
+            <div className="ml-1">
+              <div className="text-sm text-left font-medium text-gray-900">{value}</div>
+            </div>
+        )
+      }
+    },
+    {
+      Header: "Score",
+      accessor: 'ats_score',
+      Cell: ({ value})=> {
+
+        return (
+
+              <div className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <div className="flex items-center">
+                    <span className="mr-2">{value}%</span>
+                    <div className="relative w-full">
+                      <div className="overflow-hidden h-2 text-xs flex rounded bg-red-200">
+                        <div
+                          style={{ width: `${value}%` }}
+                          className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        )
+      }
+    },
+    {
+      Header: " Select",
+      accessor: "_id",
+      roundAccessor : "lastClearedRound",
+      Cell: ({ value, column, row  }) => {
+        const selectCan = async(email) => {
+
+          await axios
+          .post(`http://127.0.0.1:8787/candidate/updateRound`,{
+            candidateId:value,
+            round:row.original[column.roundAccessor]
+          })
+          .then(function (response) {
+            console.log(response);
             document.getElementById(`canSelectBtn${value}`).innerText = "Selected ☑️";
-            localStorage.setItem('selected_candidates',JSON.stringify(selected_candidates));
-          }else{
-            document.getElementById(`canSelectBtn${value}`).innerText = "Selected ☑️";
-            localStorage.setItem('selected_candidates',JSON.stringify([value]));
-          }
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
 
-
-
-
-
-
-        }
-        const rejectCan = (email) => {
-          console.log(value)
-          alert(value+" deleted successfully");
         }
         return  <div className=' text-left'><button
         className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 mr-3 rounded outline-none focus:outline-none ease-linear transition-all duration-150"
@@ -135,13 +157,38 @@ const TableComponent = () => {
       </button></div>
 
       },
+    },
+    {
+      Header: " Resume ",
+      accessor: "resume",
+      Cell: ({ value }) => {
+        const getResume = async (email) => {
+          await axios
+          .get(`http://127.0.0.1:8787/resume/${value}`)
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        }
+        return  <div className=' text-left'><button
+        className="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 mr-3 rounded outline-none focus:outline-none ease-linear transition-all duration-150"
+        type="button" onClick={getResume}
+      >
+        <a href={`http://127.0.0.1:8787/resume/${value}`} download='resume.pdf' >
+                   Download ⬇️
+         </a>
+        </button></div>
+
+      },
     }
 
   ], [])
 
 
 
-  const data = React.useMemo(() => getData(), [])
+  const Demodata = React.useMemo(() => getData(), [])
 
 
   return (
@@ -160,29 +207,20 @@ const TableComponent = () => {
                   className=
                   "mx-3 px-3 py-1 uppercase leading-wide font-bold text-xs rounded-full shadow-sm bg-gray-200 text-green-600"
                 >
-                  48 Candidates
+                  {candidates.length} Candidates
                 </span>
               </div>
             </div>
 
           </div>
 
-          <div>
-            <div className="flex justify-center">
-              <button
-                className=" rounded-lg border border-gray-200 mx-2 px-4 py-1 flex justify-center items-center text-md text-white font-medium bg-blue-400 hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-              >
-                 <span className='ml-2'>Update All</span>
 
-              </button>
-            </div>
-          </div>
 
 
         </div>
 
         {/* table start */}
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={candidates}  />
 
 
       </div>

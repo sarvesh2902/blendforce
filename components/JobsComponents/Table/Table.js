@@ -41,7 +41,7 @@ export function AvatarCell({ value, column, row }) {
   )
 }
 
-function Table({ columns, data }) {
+function Table({ columns, data  }) {
   console.log(data);
 
   // Use the state and functions returned from useTable to build your UI

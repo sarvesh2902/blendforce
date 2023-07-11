@@ -32,6 +32,9 @@ const candidateSchema = new Schema({
   ats_score: {
     type: Number,
   },
+  ats_score: {
+    type: Number,
+  },
 });
 
 const Candidate =

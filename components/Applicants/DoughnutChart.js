@@ -3,10 +3,10 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 // import { barChartData, barChartOptions } from "../../data/chartData";
 import { useEffect, useState } from "react";
 
-const DoughnutChart = () => {
+const DoughnutChart = ({gender}) => {
 
 
-  const [data, setData] = useState( [34, 25, 16]);
+  const [data, setData] = useState(gender);
 
   const [barChartOptions, setOptions] = useState({
 
