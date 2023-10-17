@@ -70,7 +70,7 @@ export default function Dashboard({ employees }) {
         <div className="relative md:ml-48 bg-blueGray-100">
           <AdminNavbar title={Dashboard} image={session.user.image} />
           {/* Header */}
-          <HeaderEmployees />
+          <HeaderEmployees handleExport={handleDownloadClick} />
           <div className="px-4 md:px-10 mx-auto w-full -m-24">
             <div className="flex flex-wrap mt-4 justify-center">
               <div className="w-full mb-12 xl:mb-0 px-4">
@@ -135,7 +135,7 @@ export default function Dashboard({ employees }) {
                 </div>
               </div>
             </div>
-            <button onClick={handleDownloadClick}>Export</button>
+            {/* <button onClick={handleDownloadClick}>Export</button> */}
             <FooterAdmin />
           </div>
         </div>

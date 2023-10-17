@@ -28,21 +28,6 @@ router.post("/get-employees-dept", async (req, res) => {
       { $group: { _id: "$gender", count: { $sum: 1 } } },
     ]);
 
-    const ethnicityCounts = await Employee.aggregate([
-      { $match: { department } },
-      { $group: { _id: "$ethnicity", count: { $sum: 1 } } },
-    ]);
-
-    const sexualOrientationCounts = await Employee.aggregate([
-      { $match: { department } },
-      { $group: { _id: "$sexualOrientation", count: { $sum: 1 } } },
-    ]);
-
-    const lgbtqCounts = await Employee.aggregate([
-      { $match: { department } },
-      { $group: { _id: "$lgbtq", count: { $sum: 1 } } },
-    ]);
-
     const disabilityCounts = await Employee.aggregate([
       { $match: { department } },
       { $group: { _id: "$disability", count: { $sum: 1 } } },
@@ -62,9 +47,40 @@ router.post("/get-employees-dept", async (req, res) => {
 
     res.status(200).json({
       genderCounts,
-      ethnicityCounts,
-      sexualOrientationCounts,
-      lgbtqCounts,
+      disabilityCounts,
+      indigenousCounts,
+      departmentCounts,
+    });
+  } catch (e) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to get employees" });
+  }
+});
+
+router.post("/get-employees-count", async (req, res) => {
+  try {
+    const genderCounts = await Employee.aggregate([
+      { $match: {} },
+      { $group: { _id: "$gender", count: { $sum: 1 } } },
+    ]);
+
+    const disabilityCounts = await Employee.aggregate([
+      { $match: {} },
+      { $group: { _id: "$disability", count: { $sum: 1 } } },
+    ]);
+
+    const indigenousCounts = await Employee.aggregate([
+      { $match: {} },
+      { $group: { _id: "$indigenous", count: { $sum: 1 } } },
+    ]);
+
+    const departmentCounts = await Employee.aggregate([
+      { $match: {} },
+      { $group: { _id: "$department", count: { $sum: 1 } } },
+    ]);
+
+    res.status(200).json({
+      genderCounts,
       disabilityCounts,
       indigenousCounts,
       departmentCounts,

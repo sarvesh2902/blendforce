@@ -4,12 +4,10 @@ import Admin from "layouts/Admin.js";
 import TableComponent from "components/JobsComponents/Table/TableComponent";
 import axios from "axios";
 
-
-export default function Vendor({candidatesGendorAndVendor}) {
+export default function Vendor({ candidatesGendorAndVendor }) {
   const { data: session, status } = useSession();
   console.log(session);
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     const securePage = () => {
@@ -31,27 +29,16 @@ export default function Vendor({candidatesGendorAndVendor}) {
       headerText="All Candidates Table"
       image={session.user.image}
     >
-
-
       <div className="flex flex-wrap mt-4 justify-center">
         <div className="w-full mb-12 xl:mb-0 px-2">
-        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-
-
-      <div className="flex-auto py-10">
-
-
-        <div className="  mb-12 xl:mb-0">
-        <TableComponent candidates={candidatesGendorAndVendor.candidates}/>
-        </div>
-
-
-
-
-
-
-
-          </div>
+          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+            <div className="flex-auto py-10">
+              <div className="  mb-12 xl:mb-0">
+                <TableComponent
+                  candidates={candidatesGendorAndVendor.candidates}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -80,7 +67,7 @@ export async function getServerSideProps(context) {
     props: {
       session,
       userId,
-      candidatesGendorAndVendor
+      candidatesGendorAndVendor,
     },
   };
 }

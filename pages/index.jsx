@@ -9,20 +9,21 @@ import Layout from "components/Layout";
 
 export default function Index() {
   return (
-    <Layout title="Home / BuildTogether">
+    <Layout title="Home / BlendForce">
       <IndexNavbar fixed />
       <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
               <h2 className="font-semibold text-3xl text-blueGray-600">
-                BuildTogether - Acheive D&I goals
+                BlendForce - Acheive D&I goals
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-              BuildTogether is a software application that create and analyze data, track progress, and improve D&I within the organization.
+                BlendForce is a software application that create and analyze
+                data, track progress, and improve D&I within the organization.
               </p>
               <div className="mt-12">
-                <Link href="/disease">
+                <Link href="/dashboard">
                   <a className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-[#4F46E5] active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
                     Get started
                   </a>
@@ -47,7 +48,7 @@ export default function Index() {
         />
       </section>
 
-      <section
+      {/* <section
         id="main"
         className="mt-48 md:mt-40 pb-40 relative bg-blueGray-100"
       >
@@ -92,15 +93,15 @@ export default function Index() {
                     ></polygon>
                   </svg>
                   <h4 className="text-xl font-bold text-white">
-                    BuildTogether - The Farming Assistant
+                    BlendForce - The Farming Assistant
                   </h4>
                   <p className="text-md font-light mt-2 text-white">
-                    BuildTogether is a software application that helps farmers manage
-                    and optimize their agricultural operations. It can provide a
-                    variety of features such as disease detection, fertilizer
-                    and crop recommendation and weather predictions. It include
-                    features of machine learning to provide farmers with
-                    real-time data and insights to improve efficiency and
+                    BlendForce is a software application that helps farmers
+                    manage and optimize their agricultural operations. It can
+                    provide a variety of features such as disease detection,
+                    fertilizer and crop recommendation and weather predictions.
+                    It include features of machine learning to provide farmers
+                    with real-time data and insights to improve efficiency and
                     productivity. Also it provides a chat bot so that the
                     queries of the users can be solved within minutes.
                   </p>
@@ -133,9 +134,9 @@ export default function Index() {
                         Disease Detection
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        BuildTogether allows you to identify dangerous crop diseases
-                        and apply an individual approach to treat them, thus
-                        increasing disease prevention effectively.
+                        BlendForce allows you to identify dangerous crop
+                        diseases and apply an individual approach to treat them,
+                        thus increasing disease prevention effectively.
                       </p>
                     </div>
                   </div>
@@ -194,7 +195,7 @@ export default function Index() {
                       <p className="mb-4 text-blueGray-500">
                         The amount of fertilizers added to soil during the
                         period of cultivation can greatly affect the soil pH and
-                        nutrients. Know the right amount from BuildTogether.
+                        nutrients. Know the right amount from BlendForce.
                       </p>
                     </div>
                   </div>
@@ -221,7 +222,7 @@ export default function Index() {
                       </h6>
                       <p className="mb-4 text-blueGray-500">
                         Weather plays an important role in Agriculture. Know the
-                        weather with predictions from BuildTogether.
+                        weather with predictions from BlendForce.
                       </p>
                     </div>
                   </div>
@@ -254,9 +255,9 @@ export default function Index() {
                 Disease Detection
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                BuildTogether allows you to identify dangerous crop diseases and apply
-                an individual approach to treat them, thus increasing disease
-                prevention effectively.
+                BlendForce allows you to identify dangerous crop diseases and
+                apply an individual approach to treat them, thus increasing
+                disease prevention effectively.
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2  rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
@@ -327,7 +328,7 @@ export default function Index() {
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                 The amount of fertilizers added to soil during the period of
                 cultivation can greatly affect the soil pH and nutrients. Know
-                the right amount from BuildTogether.
+                the right amount from BlendForce.
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2  rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
@@ -452,7 +453,7 @@ export default function Index() {
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
                 Weather plays an important role in Agriculture. Know the weather
-                with predictions from BuildTogether.
+                with predictions from BlendForce.
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2  rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
@@ -483,9 +484,9 @@ export default function Index() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="pb-16 bg-blueGray-200 relative pt-32">
+      {/* <section className="pb-16 bg-blueGray-200 relative pt-32">
         <div
           className="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20"
           style={{ transform: "translateZ(0)" }}
@@ -519,21 +520,12 @@ export default function Index() {
                     Get started
                   </a>
                 </Link>
-
-                {/* <a
-                  href="https://github.com/sarvesh2902/Hackanova_CTRL-ALT-ELITE"
-                  className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github Repo
-                </a> */}
               </div>
               <div className="text-center mt-16"></div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </Layout>

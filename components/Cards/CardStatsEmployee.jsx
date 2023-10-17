@@ -7,12 +7,14 @@ export default function CardStats({
   buttonTitle,
   statIconName,
   statIconColor,
+  handleExport,
 }) {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -66,7 +68,12 @@ export default function CardStats({
                   </button>
                 </form>
               ) : (
-                <button className="w-full get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150">
+                <button
+                  onClick={() => {
+                    handleExport();
+                  }}
+                  className="w-full get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-800 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                >
                   {buttonTitle}
                 </button>
               )}

@@ -1,0 +1,162 @@
+[
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebc6"
+    },
+    "": 0,
+    "department": "it",
+    "gender": "Transgender",
+    "ethnicity": "White",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "Prefer not to say",
+    "indigenous": "No",
+    "disability": "Yes",
+    "age": 29,
+    "mobile": "363 436 1096",
+    "email": "Deborah.Addison@mail.ca",
+    "name": "Deborah Addidaugher",
+    "position": "network engineer",
+    "employmentPeriod": 21,
+    "region": "Mumbai"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebc7"
+    },
+    "": 1,
+    "department": "marketing",
+    "gender": "Male",
+    "ethnicity": "White",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "No",
+    "indigenous": "Yes",
+    "disability": "No",
+    "age": 59,
+    "mobile": "905 980 9989",
+    "email": "Mona.Hill@mail.ca",
+    "name": "Mona Hill",
+    "position": "brand strategist",
+    "employmentPeriod": 33,
+    "region": "Tokyo"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebc8"
+    },
+    "": 2,
+    "department": "finance",
+    "gender": "Female",
+    "ethnicity": "White",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "No",
+    "indigenous": "No",
+    "disability": "No",
+    "age": 43,
+    "mobile": "788 356 1577",
+    "email": "Kimberly.Shelton@mail.ca",
+    "name": "Kimberly Shelton",
+    "position": "financial analyst",
+    "employmentPeriod": 35,
+    "region": "New York"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebc9"
+    },
+    "": 3,
+    "department": "hr",
+    "gender": "Male",
+    "ethnicity": "White",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "No",
+    "indigenous": "No",
+    "disability": "Yes",
+    "age": 44,
+    "mobile": "946 855 5822",
+    "email": "Denis.Robinson@mail.ca",
+    "name": "Denis Robinson",
+    "position": "recruitment specialist",
+    "employmentPeriod": 49,
+    "region": "Mumbai"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebca"
+    },
+    "": 4,
+    "department": "rd",
+    "gender": "Male",
+    "ethnicity": "Asian",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "No",
+    "indigenous": "No",
+    "disability": "No",
+    "age": 50,
+    "mobile": "537 895 4532",
+    "email": "Carmen.Gunn@mail.ca",
+    "name": "Carmen Gunn",
+    "position": "R&D engineer",
+    "employmentPeriod": 50,
+    "region": "London"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebcb"
+    },
+    "": 5,
+    "department": "sales",
+    "gender": "Male",
+    "ethnicity": "Black",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "No",
+    "indigenous": "No",
+    "disability": "No",
+    "age": 37,
+    "mobile": "317 280 1655",
+    "email": "Nathan.Furnell@mail.ca",
+    "name": "Nathan Furnell",
+    "position": "sales operations analyst",
+    "employmentPeriod": 33,
+    "region": "Mumbai"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebcc"
+    },
+    "": 6,
+    "department": "marketing",
+    "gender": "Male",
+    "ethnicity": "White",
+    "sexualOrientation": "Prefer not to say",
+    "lgbtq": "Yes",
+    "indigenous": "No",
+    "disability": "No",
+    "age": 34,
+    "mobile": "500 192 9313",
+    "email": "Luke.Sinclair@mail.ca",
+    "name": "Luke Sinclair",
+    "position": "digital marketer",
+    "employmentPeriod": 57,
+    "region": "Tokyo"
+  },
+  {
+    "_id": {
+      "$oid": "64abe413a6a303284e70ebcd"
+    },
+    "": 7,
+    "department": "sales",
+    "gender": "Male",
+    "ethnicity": "White",
+    "sexualOrientation": "Heterosexual",
+    "lgbtq": "No",
+    "indigenous": "No",
+    "disability": "No",
+    "age": 27,
+    "mobile": "531 698 4421",
+    "email": "Fred.Callan@mail.ca",
+    "name": "Fred Callan",
+    "position": "sales manager",
+    "employmentPeriod": 35,
+    "region": "Hong Kong"
+  }
+]

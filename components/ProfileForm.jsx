@@ -10,7 +10,7 @@ const ProfileForm = ({ candidate }) => {
     email: candidate?.email ?? "",
     mobile: candidate?.mobile ?? "",
     gender: candidate?.gender ?? "",
-    ethnicity: candidate?.ethnicity ?? "",
+    // ethnicity: candidate?.ethnicity ?? "",
     resume: null,
   });
 
@@ -37,7 +37,7 @@ const ProfileForm = ({ candidate }) => {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("mobile", formData.mobile);
     formDataToSend.append("gender", formData.gender);
-    formDataToSend.append("ethnicity", formData.ethnicity);
+    // formDataToSend.append("ethnicity", formData.ethnicity);
     formDataToSend.append("resume", formData.resume);
 
     await axios
@@ -137,7 +137,7 @@ const ProfileForm = ({ candidate }) => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div className="mr-2 mb-3">
+            {/* <div className="mr-2 mb-3">
               <label
                 className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="ethnicity"
@@ -159,7 +159,7 @@ const ProfileForm = ({ candidate }) => {
                 <option value="Latin">Latin</option>
                 <option value="Other">Other</option>
               </select>
-            </div>
+            </div> */}
           </div>
 
           <div className="mb-3">

@@ -18,7 +18,7 @@ export default function Fertilizer() {
     {
       id: 1,
       title: "Software Engineer",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Powai, Mumbai",
       skills: ["JavaScript", "Python", "React"],
       experience_level: "Senior Level",
@@ -29,7 +29,7 @@ export default function Fertilizer() {
       overview:
         "An exciting opportunity to work as a Software Engineer at Google",
       description:
-        "Nomura is seeking a highly motivated Software Engineer to join our team. The successful candidate will be responsible for developing, testing and deploying software for our products. This is an excellent opportunity to work with some of the brightest minds in the industry and to make a significant impact on the way people use technology.  As a Software Engineer, you will be responsible for designing, developing and maintaining software for our products. You will work with a team of engineers to implement new features, and improve the performance and scalability of existing systems. You will also be responsible for testing and debugging code, and for troubleshooting and resolving technical issues.The ideal candidate will have a strong background in software development, with experience in at least one programming language such as JavaScript, Python or React. A passion for technology and an aptitude for problem-solving is also essential. If you are excited by the prospect of working in a fast-paced and dynamic environment, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is seeking a highly motivated Software Engineer to join our team. The successful candidate will be responsible for developing, testing and deploying software for our products. This is an excellent opportunity to work with some of the brightest minds in the industry and to make a significant impact on the way people use technology.  As a Software Engineer, you will be responsible for designing, developing and maintaining software for our products. You will work with a team of engineers to implement new features, and improve the performance and scalability of existing systems. You will also be responsible for testing and debugging code, and for troubleshooting and resolving technical issues.The ideal candidate will have a strong background in software development, with experience in at least one programming language such as JavaScript, Python or React. A passion for technology and an aptitude for problem-solving is also essential. If you are excited by the prospect of working in a fast-paced and dynamic environment, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Design, develop, and maintain software for Google products",
         "Work with a team of engineers to implement new features",
@@ -41,14 +41,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 2,
       title: "Data Scientist",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Seattle, WA",
       skills: ["Python", "R", "Machine Learning"],
       experience_level: "Senior Level",
@@ -58,7 +58,7 @@ export default function Fertilizer() {
       education: "Master's Degree",
       overview: "An exciting opportunity to work as a Data Scientist at Amazon",
       description:
-        "Nomura is seeking a highly motivated Data Scientist to join our team. The successful candidate will be responsible for analyzing large data sets and using statistical and machine learning techniques to extract insights and inform business decisions. This is an excellent opportunity to work with some of the brightest minds in the industry and to make a significant impact on the way we use data at Amazon. As a Data Scientist, you will be responsible for designing and implementing experiments, analyzing data, and building models to inform business decisions. You will also be responsible for communicating your findings to stakeholders and collaborating with cross-functional teams to implement data-driven solutions. The ideal candidate will have a strong background in statistics, mathematics, and computer science, with experience in at least one programming language such as Python or R, and experience with machine learning techniques. Strong communication skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working with large data sets, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is seeking a highly motivated Data Scientist to join our team. The successful candidate will be responsible for analyzing large data sets and using statistical and machine learning techniques to extract insights and inform business decisions. This is an excellent opportunity to work with some of the brightest minds in the industry and to make a significant impact on the way we use data at Amazon. As a Data Scientist, you will be responsible for designing and implementing experiments, analyzing data, and building models to inform business decisions. You will also be responsible for communicating your findings to stakeholders and collaborating with cross-functional teams to implement data-driven solutions. The ideal candidate will have a strong background in statistics, mathematics, and computer science, with experience in at least one programming language such as Python or R, and experience with machine learning techniques. Strong communication skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working with large data sets, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Analyze large data sets using statistical and machine learning techniques",
         "Design and implement experiments, analyze data, and build models",
@@ -70,14 +70,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 3,
       title: "Product Manager",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Menlo Park, CA",
       skills: [
         "Product Management",
@@ -92,7 +92,7 @@ export default function Fertilizer() {
       overview:
         "An exciting opportunity to work as a Product Manager at Facebook",
       description:
-        "Nomura is seeking a highly motivated Product Manager to join our team. The successful candidate will be responsible for leading the development and launch of new products and features. This is an excellent opportunity to work with some of the brightest minds in the industry and to make a significant impact on the way people connect and share on Facebook. As a Product Manager, you will be responsible for defining and driving the product vision, gathering and prioritizing product and customer requirements, and working closely with cross-functional teams to deliver products and features on time and on budget. You will also be responsible for analyzing market trends, identifying new opportunities, and measuring the success of the products you launch. The ideal candidate will have a strong background in product management, product development, and project management, with experience in leading cross-functional teams. Strong communication skills and the ability to work well under pressure are also essential. If you are excited by the prospect of working in a fast-paced and dynamic environment, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is seeking a highly motivated Product Manager to join our team. The successful candidate will be responsible for leading the development and launch of new products and features. This is an excellent opportunity to work with some of the brightest minds in the industry and to make a significant impact on the way people connect and share on Facebook. As a Product Manager, you will be responsible for defining and driving the product vision, gathering and prioritizing product and customer requirements, and working closely with cross-functional teams to deliver products and features on time and on budget. You will also be responsible for analyzing market trends, identifying new opportunities, and measuring the success of the products you launch. The ideal candidate will have a strong background in product management, product development, and project management, with experience in leading cross-functional teams. Strong communication skills and the ability to work well under pressure are also essential. If you are excited by the prospect of working in a fast-paced and dynamic environment, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Lead the development and launch of new products and features",
         "Define and drive the product vision, gather and prioritize product and customer requirements",
@@ -104,14 +104,14 @@ export default function Fertilizer() {
       ],
       time_posted: "20 22-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 4,
       title: "Software Engineer",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Mountain View, CA",
       skills: ["Software Development", "JavaScript", "React"],
       experience_level: "Entry Level",
@@ -121,7 +121,7 @@ export default function Fertilizer() {
       education: "Vocational Course",
       overview: "Join the Google team as a Software Engineer",
       description:
-        "Nomura is looking for a Software Engineer to join our team. You will be responsible for designing, developing, and maintaining web applications and services. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the way people access and use information. As a Software Engineer, you will be responsible for writing clean, efficient, and well-documented code. You will also be responsible for testing and debugging your code, and for collaborating with other engineers to deliver high-quality products and features.The ideal candidate will have a strong background in software development, with experience in at least one programming language such as JavaScript or React, and experience with web development. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a Software Engineer to join our team. You will be responsible for designing, developing, and maintaining web applications and services. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the way people access and use information. As a Software Engineer, you will be responsible for writing clean, efficient, and well-documented code. You will also be responsible for testing and debugging your code, and for collaborating with other engineers to deliver high-quality products and features.The ideal candidate will have a strong background in software development, with experience in at least one programming language such as JavaScript or React, and experience with web development. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Design, develop, and maintain web applications and services",
         "Write clean, efficient, and well-documented code",
@@ -133,14 +133,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 5,
       title: "Frontend Developer",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "San Francisco, CA",
       skills: ["JavaScript", "React", "CSS"],
       experience_level: "Student Level",
@@ -150,7 +150,7 @@ export default function Fertilizer() {
       education: "Graduated High School",
       overview: "Join the Uber team as a Frontend Developer",
       description:
-        "Nomura is looking for a Frontend Developer to join our team. You will be responsible for developing and maintaining the user interface of our web and mobile applications. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the user experience of our products. As a Frontend Developer, you will be responsible for building and implementing user interfaces using technologies such as JavaScript, React, and CSS. You will also be responsible for testing and debugging your code, and for collaborating with other engineers and designers to deliver high-quality products and features.The ideal candidate will have a strong background in Frontend development, with experience in technologies such as JavaScript, React, and CSS. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a Frontend Developer to join our team. You will be responsible for developing and maintaining the user interface of our web and mobile applications. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the user experience of our products. As a Frontend Developer, you will be responsible for building and implementing user interfaces using technologies such as JavaScript, React, and CSS. You will also be responsible for testing and debugging your code, and for collaborating with other engineers and designers to deliver high-quality products and features.The ideal candidate will have a strong background in Frontend development, with experience in technologies such as JavaScript, React, and CSS. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Develop and maintain the user interface of web and mobile applications",
         "Build and implement user interfaces using technologies such as JavaScript, React, and CSS",
@@ -162,14 +162,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 6,
       title: "Data Analyst",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Los Gatos, CA",
       skills: ["Data Analysis", "Python", "SQL"],
       experience_level: "Senior Level",
@@ -179,7 +179,7 @@ export default function Fertilizer() {
       education: "PHD",
       overview: "Join the Netflix team as a Data Analyst",
       description:
-        "Nomura is looking for a Data Analyst to join our team. You will be responsible for collecting, analyzing, and interpreting large sets of data to inform business decisions. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a Data Analyst, you will be responsible for using tools such as Python and SQL to collect and analyze data. You will also be responsible for creating reports and visualizations to communicate your findings to stakeholders. In addition, you will be responsible for identifying trends and patterns in the data and making recommendations for action. The ideal candidate will have a strong background in data analysis, with experience in tools such as Python and SQL. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a Data Analyst to join our team. You will be responsible for collecting, analyzing, and interpreting large sets of data to inform business decisions. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a Data Analyst, you will be responsible for using tools such as Python and SQL to collect and analyze data. You will also be responsible for creating reports and visualizations to communicate your findings to stakeholders. In addition, you will be responsible for identifying trends and patterns in the data and making recommendations for action. The ideal candidate will have a strong background in data analysis, with experience in tools such as Python and SQL. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Collect, analyze, and interpret large sets of data",
         "Use tools such as Python and SQL to collect and analyze data",
@@ -191,14 +191,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 7,
       title: "DevOps Engineer",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Seattle, WA",
       skills: ["DevOps", "AWS", "Linux"],
       experience_level: "Senior Level",
@@ -208,7 +208,7 @@ export default function Fertilizer() {
       education: "Associate Studies",
       overview: "Join the Amazon team as a DevOps Engineer",
       description:
-        "Nomura is looking for a DevOps Engineer to join our team. You will be responsible for designing, implementing, and maintaining the infrastructure and tools that support the development, testing, and deployment of our products. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a DevOps Engineer, you will be responsible for designing and implementing infrastructure and tools using technologies such as AWS and Linux. You will also be responsible for automating the deployment process and ensuring the reliability and scalability of our systems. In addition, you will be responsible for collaborating with other engineers and stakeholders to deliver high-quality products and features. The ideal candidate will have a strong background in DevOps, with experience in technologies such as AWS and Linux. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a DevOps Engineer to join our team. You will be responsible for designing, implementing, and maintaining the infrastructure and tools that support the development, testing, and deployment of our products. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a DevOps Engineer, you will be responsible for designing and implementing infrastructure and tools using technologies such as AWS and Linux. You will also be responsible for automating the deployment process and ensuring the reliability and scalability of our systems. In addition, you will be responsible for collaborating with other engineers and stakeholders to deliver high-quality products and features. The ideal candidate will have a strong background in DevOps, with experience in technologies such as AWS and Linux. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Design, implement, and maintain infrastructure and tools",
         "Use technologies such as AWS and Linux",
@@ -220,14 +220,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 8,
       title: "Java Developer",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Mountain View, CA",
       skills: ["Java", "Spring", "Agile"],
       experience_level: "Mid Level",
@@ -237,7 +237,7 @@ export default function Fertilizer() {
       education: "Bachelor's Degree",
       overview: "Join the Google team as a Java Developer ",
       description:
-        "Nomura is looking for a talented Java Developer to join our team. As a Java Developer, you will be responsible for designing, developing, and maintaining our core applications and services. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company.As a Java Developer, you will be responsible for designing and implementing new features and functionality using Java and the Spring Framework. You will also be responsible for maintaining and improving existing codebase. Additionally, you will be responsible for collaborating with other engineers and stakeholders to deliver high-quality products and features. The ideal candidate will have a strong background in Java development, with experience in technologies such as Spring and Agile development methodologies. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a talented Java Developer to join our team. As a Java Developer, you will be responsible for designing, developing, and maintaining our core applications and services. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company.As a Java Developer, you will be responsible for designing and implementing new features and functionality using Java and the Spring Framework. You will also be responsible for maintaining and improving existing codebase. Additionally, you will be responsible for collaborating with other engineers and stakeholders to deliver high-quality products and features. The ideal candidate will have a strong background in Java development, with experience in technologies such as Spring and Agile development methodologies. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Design, develop, and maintain core applications and services",
         "Use Java and the Spring Framework",
@@ -249,14 +249,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 9,
       title: "Frontend Developer",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "Stockholm, Sweden",
       skills: ["JavaScript", "React", "CSS"],
       experience_level: "Entry level",
@@ -266,7 +266,7 @@ export default function Fertilizer() {
       education: "Bachelor's Degree",
       overview: "Join the Spotify team as a Frontend Developer",
       description:
-        "Nomura is looking for a Frontend Developer to join our team. You will be responsible for designing, developing, and maintaining our web applications. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a Frontend Developer, you will be responsible for designing and implementing new features and functionality using JavaScript, React, and CSS. You will also be responsible for maintaining and improving existing codebase. Additionally, you will be responsible for collaborating with other engineers and stakeholders to deliver high-quality products and features. The ideal candidate will have a strong background in Frontend development, with experience in technologies such as JavaScript, React, and CSS. Strong problem-solving skills and the ability to work well in a team environmentare also essential. If you are excited by the prospect of working at a company that is at the forefront of music streaming technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a Frontend Developer to join our team. You will be responsible for designing, developing, and maintaining our web applications. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a Frontend Developer, you will be responsible for designing and implementing new features and functionality using JavaScript, React, and CSS. You will also be responsible for maintaining and improving existing codebase. Additionally, you will be responsible for collaborating with other engineers and stakeholders to deliver high-quality products and features. The ideal candidate will have a strong background in Frontend development, with experience in technologies such as JavaScript, React, and CSS. Strong problem-solving skills and the ability to work well in a team environmentare also essential. If you are excited by the prospect of working at a company that is at the forefront of music streaming technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Design, develop, and maintain web applications",
         "Use JavaScript, React, and CSS",
@@ -278,14 +278,14 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
     {
       id: 10,
       title: "Data Scientist",
-      company_name: "Nomura",
+      company_name: "Google",
       company_location: "San Francisco, CA, USA",
       skills: ["Python", "R", "SQL", "Machine Learning"],
       experience_level: "Senior Level",
@@ -295,7 +295,7 @@ export default function Fertilizer() {
       education: "Masters Degree",
       overview: "Join the Uber team as a Data Scientist",
       description:
-        "Nomura is looking for a Data Scientist to join our team. You will be responsible for using data to inform and drive decision-making for our business. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a Data Scientist, you will be responsible for analyzing and interpreting complex data sets, developing and implementing machine learning models, and providing insights to inform business decisions. Additionally, you will be responsible for collaborating with cross-functional teams to identify and solve business problems. The ideal candidate will have a strong background in statistics and computer science, with experience in technologies such as Python, R, SQL, and machine learning. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of transportation technology, and are ready to take your career to the next level, we would love to hear from you!",
+        "Google is looking for a Data Scientist to join our team. You will be responsible for using data to inform and drive decision-making for our business. You will work in a fast-paced, collaborative environment and have the opportunity to make a significant impact on the success of our company. As a Data Scientist, you will be responsible for analyzing and interpreting complex data sets, developing and implementing machine learning models, and providing insights to inform business decisions. Additionally, you will be responsible for collaborating with cross-functional teams to identify and solve business problems. The ideal candidate will have a strong background in statistics and computer science, with experience in technologies such as Python, R, SQL, and machine learning. Strong problem-solving skills and the ability to work well in a team environment are also essential. If you are excited by the prospect of working at a company that is at the forefront of transportation technology, and are ready to take your career to the next level, we would love to hear from you!",
       requirements_and_responsibilities: [
         "Analyze and interpret complex data sets",
         "Develop and implement machine learning models",
@@ -307,9 +307,9 @@ export default function Fertilizer() {
       ],
       time_posted: "2022-09-01",
       logo_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
       banner_url:
-        "https://www.graduatesfirst.com/wp-content/uploads/2022/10/nomura-logo-9906582.png",
+        "https://res.cloudinary.com/sarveshp46/image/upload/v1696653343/google_logo_bdobod.png",
     },
   ]);
 
@@ -350,19 +350,17 @@ export default function Fertilizer() {
                   <div className="flex flex-wrap mt-4">
                     {/*---------------------------------------- Featured & Latest Jobs------------------------------------- */}
                     <div className="w-full flex justify-between">
-                        <div>
-
-                        </div>
-                        <div>
+                      <div></div>
+                      <div>
                         <Link href="/create-job">
                           <a className=" border rounded bg-blue-700 p-2 mx-12 flex justify-between flex-align-center gap-x-2 text-primary">
-                          <IoAdd size={32} color="white" ></IoAdd>
+                            <IoAdd size={32} color="white"></IoAdd>
                             <span className="font-bold text-white">
                               Create Job
                             </span>
                           </a>
                         </Link>
-                        </div>
+                      </div>
                     </div>
                     <div className="md:col-span-2 h-fit sm:sticky top-0">
                       <hr className="my-4 md:min-w-full" />
@@ -455,7 +453,6 @@ export default function Fertilizer() {
                 </div>
               </div>
 
-
               {/*---------------------------------------- Interview Done------------------------------------- */}
               <div>
                 <div className="mt-6">
@@ -505,9 +502,6 @@ export default function Fertilizer() {
                   </div>
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>

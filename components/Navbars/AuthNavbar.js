@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 
 // components
@@ -31,20 +31,20 @@ export default function Navbar(props) {
       <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-          <div className="flex flex-row justify-around space-x-1">
-          <img
-                src="https://res.cloudinary.com/atharva7/image/upload/v1664640503/samples/plantifylogo_ez5l1p.png"
+            <div className="flex flex-row justify-around space-x-1">
+              <img
+                src="https://res.cloudinary.com/sarveshp46/image/upload/v1696653667/Blue_Red_Modern_Team_Galaxy_Space_Voyager_Circle_Sticker_esm1lx.png"
                 alt="up"
                 className="w-16 h-16 object-cover rounded-full cursor-pointer mt-1"
-            />
-            <Link href="/" className="pt-2">
-              <a
-                className="text-white text-xl font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase px-2"
-                href="#pablo"
-              >
-                Demeter
-              </a>
-            </Link>
+              />
+              <Link href="/" className="pt-2">
+                <a
+                  className="text-white text-xl font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase px-2"
+                  href="#pablo"
+                >
+                  BlendForce
+                </a>
+              </Link>
             </div>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -73,14 +73,25 @@ export default function Navbar(props) {
               </li>
             </ul> */}
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <li className="flex items-center h-12 text-white">
+              <li className="flex items-center h-12 text-white">
                 <div
                   className="px-3 text-xs uppercase flex flex-row pb-1 font-bold"
                   id="google_translate_element"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 py-1">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-8 h-8 py-1"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
+                    />
+                  </svg>
                 </div>
               </li>
               {/* <li className="flex items-center">
@@ -131,8 +142,6 @@ export default function Navbar(props) {
                 </button>
               </li> */}
             </ul>
-
-
           </div>
         </div>
       </nav>

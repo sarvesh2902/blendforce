@@ -125,14 +125,7 @@ export default function Departments() {
                               {data.Gender}
                             </td>
                           </tr>
-                          <tr>
-                            <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                              Ethnicity
-                            </th>
-                            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                              {data.Ethnicity}
-                            </td>
-                          </tr>
+
                           <tr>
                             <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                               Date of Birth

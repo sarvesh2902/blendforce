@@ -4,7 +4,7 @@ import React from "react";
 
 import CardStats from "components/Cards/CardStatsEmployee";
 
-export default function HeaderEmployees() {
+export default function HeaderEmployees({ handleExport }) {
   return (
     <>
       {/* Header */}
@@ -23,6 +23,7 @@ export default function HeaderEmployees() {
               </div>
               <div className="w-full lg:w-6/12 xl:w-6/12 px-4">
                 <CardStats
+                  handleExport={handleExport}
                   statSubtitle="Export Employee Data"
                   buttonTitle="Export"
                   statIconName="fas fa-users"

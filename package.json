@@ -13,6 +13,8 @@
     "@headlessui/react": "^1.7.3",
     "@next-auth/mongodb-adapter": "^1.1.1",
     "@popperjs/core": "2.9.1",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "@tailwindcss/forms": "0.2.1",
     "apexcharts": "^3.41.0",
     "axios": "^0.27.2",
@@ -30,10 +32,12 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-loading": "^2.0.3",
+    "react-pdf": "^7.5.0",
     "react-scripts": "^5.0.1",
     "react-table": "^7.8.0",
     "shortid": "^2.2.16",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",

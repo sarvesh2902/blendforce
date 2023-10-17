@@ -11,7 +11,7 @@ export default function Sidebar({ role }) {
   const router = useRouter();
   return (
     <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-48 z-10 py-4 px-6">
+      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-52 z-10 py-4 px-6">
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
           {/* Toggler */}
           <button
@@ -24,13 +24,13 @@ export default function Sidebar({ role }) {
           {/* Brand */}
           <div className="flex flex-row justify-around ">
             <img
-              src="https://res.cloudinary.com/atharva7/image/upload/v1664640503/samples/plantifylogo_ez5l1p.png"
+              src="https://res.cloudinary.com/sarveshp46/image/upload/v1696653667/Blue_Red_Modern_Team_Galaxy_Space_Voyager_Circle_Sticker_esm1lx.png"
               alt="up"
               className="w-16 h-16 object-cover rounded-full cursor-pointer mt-1"
             />
             <Link href="/" className="pt-2">
               <a className="text-blueGray-700 text-xl font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase ">
-                Demeter
+                BlendForce
               </a>
             </Link>
           </div>
@@ -56,7 +56,7 @@ export default function Sidebar({ role }) {
                 <div className="w-6/12">
                   <Link href="/">
                     <a className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0">
-                      DEMETER
+                      BlendForcer
                     </a>
                   </Link>
                 </div>
@@ -118,11 +118,11 @@ export default function Sidebar({ role }) {
 
                 {/* departments */}
                 <li className="items-center">
-                  <Link href="/departments">
+                  <Link href="/departments/it">
                     <a
                       className={
                         "text-sm uppercase py-3 font-bold block " +
-                        (router.pathname.indexOf("/departments") !== -1
+                        (router.pathname.indexOf("/departments/it") !== -1
                           ? "text-lightBlue-500 hover:text-lightBlue-600"
                           : "text-blueGray-700 hover:text-blueGray-500")
                       }
@@ -130,7 +130,7 @@ export default function Sidebar({ role }) {
                       <i
                         className={
                           "fas fa-tools mr-2 text-sm " +
-                          (router.pathname.indexOf("/departments") !== -1
+                          (router.pathname.indexOf("/departments/it") !== -1
                             ? "opacity-75"
                             : "text-blueGray-300")
                         }
@@ -184,6 +184,53 @@ export default function Sidebar({ role }) {
                         }
                       ></i>{" "}
                       Jobs
+                    </a>
+                  </Link>
+                </li>
+
+                {/* vendor */}
+                <li className="items-center">
+                  <Link href="/vendor">
+                    <a
+                      className={
+                        "text-sm uppercase py-3 font-bold block " +
+                        (router.pathname.indexOf("/vendor") !== -1
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
+                      }
+                    >
+                      <i
+                        className={
+                          "fas fa-user mr-2 text-sm " +
+                          (router.pathname.indexOf("/vendor") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Vendor
+                    </a>
+                  </Link>
+                </li>
+
+                <li className="items-center">
+                  <Link href="/chatbot">
+                    <a
+                      className={
+                        "text-sm uppercase py-3 font-bold block " +
+                        (router.pathname.indexOf("/chatbot") !== -1
+                          ? "text-lightBlue-500 hover:text-lightBlue-600"
+                          : "text-blueGray-700 hover:text-blueGray-500")
+                      }
+                    >
+                      <i
+                        className={
+                          "fas fa-user mr-2 text-sm " +
+                          (router.pathname.indexOf("/chatbot") !== -1
+                            ? "opacity-75"
+                            : "text-blueGray-300")
+                        }
+                      ></i>{" "}
+                      Chatbot
                     </a>
                   </Link>
                 </li>

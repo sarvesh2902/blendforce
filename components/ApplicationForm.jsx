@@ -10,7 +10,6 @@ const ApplicationForm = ({ job, candidate }) => {
     email: candidate?.email ?? "",
     mobile: candidate?.mobile ?? "",
     gender: candidate?.gender ?? "",
-    ethnicity: candidate?.ethnicity ?? "",
     resume: null,
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +37,6 @@ const ApplicationForm = ({ job, candidate }) => {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("mobile", formData.mobile);
     formDataToSend.append("gender", formData.gender);
-    formDataToSend.append("ethnicity", formData.ethnicity);
     formDataToSend.append("resume", formData.resume);
 
     await axios
@@ -177,29 +175,6 @@ const ApplicationForm = ({ job, candidate }) => {
                 <option value="">--Please choose an option--</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div className="mr-2 mb-3">
-              <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="ethnicity"
-              >
-                Ethinicity
-              </label>
-              <select
-                onChange={handleChange}
-                value={formData.ethnicity}
-                id="ethnicity"
-                name="ethnicity"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              >
-                <option value="">--Please choose an option--</option>
-                <option value="White">White</option>
-                <option value="Asian">Asian</option>
-                <option value="Black">Black</option>
-                <option value="Middle Eastern">Middle Eastern</option>
-                <option value="Latin">Latin</option>
                 <option value="Other">Other</option>
               </select>
             </div>

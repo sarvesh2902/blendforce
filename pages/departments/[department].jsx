@@ -80,30 +80,19 @@ export default function Departments({
               </div>
             </div>
 
-            <div className=" flex flex-wrap">
+            <div className="flex flex-wrap">
               <div className=" w-full xl:w-4/12 px-1">
                 <div className=" w-full px-2 ">
                   <GenderPieChart data={employeeData.genderCounts} />
                 </div>
-                <div className="w-full  px-2">
-                  <LGBTQPieChart data={employeeData.lgbtqCounts} />
-                </div>
               </div>
               <div className=" w-full xl:w-4/12 px-1">
-                <div className=" w-full px-2 ">
-                  <EthnicityPieChart data={employeeData.ethnicityCounts} />
-                </div>
                 <div className="w-full  px-2">
                   <IndigenousPieChart data={employeeData.indigenousCounts} />
                 </div>
               </div>
 
               <div className=" w-full xl:w-4/12 px-1">
-                <div className=" w-full px-2">
-                  <SexualityPieChart
-                    data={employeeData.sexualOrientationCounts}
-                  />
-                </div>
                 <div className="w-full  px-2">
                   <DisabilityPieChart data={employeeData.disabilityCounts} />
                 </div>

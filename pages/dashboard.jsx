@@ -26,7 +26,7 @@ import IndigenousPieChart from "components/DashboardComponents/IndigineousPieCha
 import DisabilityPieChart from "components/DashboardComponents/DisabilityPieChart";
 import EthinicityLineChart from "components/DashboardComponents/EthnicityLineChart";
 
-export default function Dashboard() {
+export default function Dashboard({ employeeData }) {
   const { data: session, status } = useSession();
   console.log(session);
   const [loading, setLoading] = useState(true);
@@ -76,43 +76,15 @@ export default function Dashboard() {
           <div className="px-4 md:px-10 mx-auto w-full -m-24">
             <div className=" flex flex-wrap">
               <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-                <CardLineChart />
-              </div>
-              <div className=" w-full xl:w-4/12 px-1">
-                <div className=" w-full px-2">
-                  <SexualityPieChart />
-                </div>
-                <div className="w-full  px-2">
-                  <DisabilityPieChart />
-                </div>
-              </div>
-            </div>
-
-            <div className=" flex flex-wrap">
-              <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
                 <MenToFemaleLineChart />
               </div>
 
               <div className=" w-full xl:w-4/12 px-1">
-                <div className=" w-full px-2 ">
-                  <GenderPieChart />
+                <div className=" w-full px-2">
+                  <GenderPieChart data={employeeData.genderCounts} />
                 </div>
                 <div className="w-full  px-2">
-                  <LGBTQPieChart />
-                </div>
-              </div>
-            </div>
-
-            <div className=" flex flex-wrap">
-              <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-                <EthinicityLineChart />
-              </div>
-              <div className=" w-full xl:w-4/12 px-1">
-                <div className=" w-full px-2 ">
-                  <EthnicityPieChart />
-                </div>
-                <div className="w-full  px-2">
-                  <IndigenousPieChart />
+                  <IndigenousPieChart data={employeeData.indigenousCounts} />
                 </div>
               </div>
             </div>
@@ -141,10 +113,22 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
   let userId = null;
 
+  let employeeData;
+  await axios
+    .post("http://localhost:8787/employee/get-employees-count", {})
+    .then(function (response) {
+      console.log(response);
+      employeeData = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
   return {
     props: {
       session,
       userId,
+      employeeData,
     },
   };
 }

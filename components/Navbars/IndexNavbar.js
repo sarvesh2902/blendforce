@@ -28,19 +28,19 @@ export default function Navbar(props) {
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div className="flex flex-row justify-around space-x-1">
-          <img
-                src="https://res.cloudinary.com/atharva7/image/upload/v1664640503/samples/plantifylogo_ez5l1p.png"
+              <img
+                src="https://res.cloudinary.com/sarveshp46/image/upload/v1696653667/Blue_Red_Modern_Team_Galaxy_Space_Voyager_Circle_Sticker_esm1lx.png"
                 alt="up"
                 className="w-16 h-16 object-cover rounded-full cursor-pointer mt-1"
-            />
-            <Link href="/" className="pt-2">
-              <a
-                className="text-blueGray-700 text-xl font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase px-2"
-                href="#pablo"
-              >
-                BuildTogether
-              </a>
-            </Link>
+              />
+              <Link href="/" className="pt-2">
+                <a
+                  className="text-blueGray-700 text-xl font-bold leading-relaxed inline-block mr-4 py-4 whitespace-nowrap uppercase px-2"
+                  href="#pablo"
+                >
+                  BlendForce
+                </a>
+              </Link>
             </div>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -57,9 +57,7 @@ export default function Navbar(props) {
             }
             id="example-navbar-warning"
           >
-
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-
               <li className="flex items-center">
                 <Link href="/dashboard">
                   <a className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold">
@@ -76,9 +74,6 @@ export default function Navbar(props) {
                   </a>
                 </Link>
               </li>
-
-
-
             </ul>
           </div>
         </div>

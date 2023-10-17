@@ -19,7 +19,7 @@ export default function FooterSmall(props) {
                 Copyright © {new Date().getFullYear()}{" "}
                 <Link href="/">
                   <a className="text-white hover:text-blueGray-300 text-sm font-semibold py-1">
-                    DEMETER
+                    BlendForce
                   </a>
                 </Link>
               </div>
@@ -31,7 +31,7 @@ export default function FooterSmall(props) {
                     href="/"
                     className="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
                   >
-                    DEMETER
+                    BlendForce
                   </a>
                 </li>
                 <li>
