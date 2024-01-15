@@ -87,6 +87,7 @@ router.post("/apply-job", async (req, res) => {
     const candidate = await JobsSchema.findById(jobId, "applications");
     candidate.applications.push(candidateId);
     candidate.save();
+
     res.status(200).json(candidate);
   } catch (e) {
     console.error(e);

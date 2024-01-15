@@ -19,7 +19,7 @@ def get_service_context(embed="HF", llm="Openai"):
 
     print("embed",embed)
     print("llm",llm)
-    openai.api_key = "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"
+    openai.api_key = "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"
 
     embed_model = LangchainEmbedding(HuggingFaceHubEmbeddings()) if embed == "HF" else LangchainEmbedding(OpenAIEmbeddings())
 

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 const ApplicationForm = ({ job, candidate }) => {
   const router = useRouter();
+  const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
     name: candidate?.name ?? "",
     email: candidate?.email ?? "",
@@ -13,6 +14,10 @@ const ApplicationForm = ({ job, candidate }) => {
     resume: null,
   });
   const [isLoading, setIsLoading] = useState(false);
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
 
   const handleChange = (event) => {
     if (event.target.type === "file") {
@@ -37,35 +42,53 @@ const ApplicationForm = ({ job, candidate }) => {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("mobile", formData.mobile);
     formDataToSend.append("gender", formData.gender);
-    formDataToSend.append("resume", formData.resume);
+    // formDataToSend.append("resume", formData.resume);
+
+    // await axios
+    //   .post("http://localhost:8787/candidate/save-profile", formDataToSend, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data", // Set the content type as multipart/form-data
+    //     },
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //     alert("Failed to save profile");
+    //   });
+
+    // await axios
+    //   .post("http://localhost:8787/candidate/apply-job", {
+    //     jobId: job._id,
+    //     candidateId: candidate._id,
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //     alert("Successfully applied to the job");
+    //     router.push("/view-jobs");
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //     alert("Failed to save profile");
+    //   });
+
+    const formData2 = new FormData();
+    formData2.append("file", formData.resume);
+    formData2.append("jobDescription", job.description);
 
     await axios
-      .post("http://localhost:8787/candidate/save-profile", formDataToSend, {
+      .post("http://127.0.0.1:5000/ats", formData2, {
         headers: {
-          "Content-Type": "multipart/form-data", // Set the content type as multipart/form-data
+          "Content-Type": "multipart/form-data",
         },
       })
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        console.log(response.data);
+        alert("ATS Score: " + response.data.score);
       })
-      .catch(function (error) {
-        console.log(error);
-        alert("Failed to save profile");
-      });
-
-    await axios
-      .post("http://localhost:8787/candidate/apply-job", {
-        jobId: job._id,
-        candidateId: candidate._id,
-      })
-      .then(function (response) {
-        console.log(response);
-        alert("Successfully applied to the job");
-        router.push("/view-jobs");
-      })
-      .catch(function (error) {
-        console.log(error);
-        alert("Failed to save profile");
+      .catch((error) => {
+        console.error(error);
       });
   };
   return (

@@ -80,13 +80,13 @@ export default function Chatbot2() {
     setoutput("Asking AI the question you asked....");
 
     try {
-      const response = await fetch("http://localhost:8000/queryqna", {
+      const response = await fetch("http://127.0.0.1:5000/qna", {
         method: "POST",
         body: formData2,
       });
       const data = await response.json();
-      console.log(data.response);
-      setoutput(data.response);
+      console.log(data.res);
+      setoutput(data.res);
     } catch (error) {
       console.error(error);
       setoutput("Error answering the query");

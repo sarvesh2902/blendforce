@@ -5,6 +5,8 @@ import docx2txt
 import fitz
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
+from langchain.agents import create_csv_agent
+from langchain.llms import OpenAI
 
 
 app = Flask(__name__)
@@ -121,6 +123,16 @@ def ats():
     score = int(similarity_matrix[1][0] * 100)
 
     return {"score": score}
+
+
+@app.route("/qna", methods=["POST"])
+def qna():
+    prompt = request.form['query']
+    # return request
+    agent = create_csv_agent(OpenAI(temperature=0, model="gpt-3.5-turbo-instruct", openai_api_key="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"),'./employee_data.csv',verbose=True)
+    res = agent.run(prompt)
+    return {"res":res}
+
     
 
 if __name__ == "__main__":

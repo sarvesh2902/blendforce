@@ -14,7 +14,7 @@ load_dotenv()
 
 
 def query_qna(text,filename,current_service_context,similarity=3, verbose=False):
-    openai.api_key = "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"
+    openai.api_key = "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"
 
     QA_PROMPT_TMPL = (
     """You are a large language model whose expertise is reading and summarizing documents.
